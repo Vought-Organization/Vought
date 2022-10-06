@@ -1,11 +1,14 @@
-import { Box } from "@mui/material";
-import React from "react";
-import MapGoogle from "./Pages/MapGoogle";
+import React from 'react';
+
+import { Box } from '@mui/material';
+
+import MapGoogle from './components/Maps';
+import Rotas from './Routes';
 
 const App = () => {
   return (
-    <Box style={{ height: "900px" }}>
-      <MapGoogle />
+    <Box height="100%" width="100%">
+      <Rotas />
     </Box>
   );
 };
