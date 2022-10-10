@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <Button variant="outlined" onClick={() => navigate('/quem-somos')}>
-        Login
+        a
       </Button>
     </div>
   );

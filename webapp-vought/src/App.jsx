@@ -1,8 +1,5 @@
 import React from 'react';
-
 import { Box } from '@mui/material';
-
-import MapGoogle from './components/Maps';
 import Rotas from './Routes';
 
 const App = () => {
