@@ -12,10 +12,10 @@ const Rotas = () => {
     <BrowserRouter>
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/quem-somos" element={<QuemSomos />} />
-        <Route path="/evento" element={<Evento />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/cadastro" element={<Cadastro />} />
+        <Route exact path="/quem-somos" element={<QuemSomos />} />
+        <Route exact path="/evento" element={<Evento />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/cadastro" element={<Cadastro />} />
       </Routes>
     </BrowserRouter>
   );
