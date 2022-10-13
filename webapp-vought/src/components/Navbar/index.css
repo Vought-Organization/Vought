@@ -69,3 +69,8 @@ body {
 #btn_entrar {
     margin-top: 10px;
 }
+
+a:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
