@@ -1,5 +1,4 @@
-@import url(https://fonts.google.com/specimen/Inter+Tight?query=inter);
-
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&display=swap');
 * {
     box-sizing: border-box; /*Desconsidera o margin e o padding na hora de contar altura ou largura
                             de um elemento*/
@@ -179,25 +178,27 @@ body {
 }
 
 .beneficio {
-    height: 400px;
-    width: 40%;
+  height: 400px;
+  width: 40%;
 }
 
 .beneficio + img {
-    display: flex;
-    justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .titulo {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    margin-top: 2%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-top: 2%;
 }
 
 .titulo + p {
-    margin-top: 3%;
+  margin-top: 3%;
 }
+
+
 
 /* FOOTER */
 #footer  {

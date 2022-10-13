@@ -57,16 +57,19 @@ const QuemSomos = () => {
             <div class="headline">SOBRE NOSSA APLICAÇÃO E BENEFÍCIOS</div>
             <div id="beneficios-container">
                 <div class="beneficio">
-                    <img src={Dardo} alt="" />
-                    <h1 class="titulo">DIRETO AO PONTO</h1>
+                  <img src={Dardo} alt="" />
+                  <div className="texto">
+                  <h1 class="titulo">DIRETO AO PONTO</h1>
                     <p>Nossa aplicação é direta ao ponto
                         e assim que entrar você ja pode utilizar.
                         Você só precisa do login quando for
                         comprar nosso ingresso e ter uma
                         interação melhor com o produto.</p>
+                  </div>
                 </div>
                 <div class="beneficio">
                     <img src={Mapa} alt="" />
+                    <div className="texto">
                     <h1 class="titulo">BOA USABILIDADE</h1>
                     <p>Nossa ferramenta foi testada e é muito simples
                         de usar, basta você escrever o nome do
@@ -74,6 +77,7 @@ const QuemSomos = () => {
                         tipo de evento que você gosta e pronto, o
                         mapa já trás para você o lugar mais próximo de
                         sua preferência.</p>
+                        </div>
                 </div>
             </div>
         </section>

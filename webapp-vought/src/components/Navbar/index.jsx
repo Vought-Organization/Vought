@@ -12,8 +12,9 @@ const quem_somos = () => {
             <h1 class="logo">VOUGHT</h1>
             <div id="navbar-items-box">
                 <ul id="navbar-items-1">
-                    <li>Home</li>
-                    <li>Quem somos</li>
+                <li><a onClick={() => navigate('/home')}>Home</a></li>
+                    <li><a onClick={() => navigate('/quem-somos')}>Quem somos</a></li>
+                    <li><a onClick={() => navigate("/escolha-evento")}>Evento</a></li>
                 </ul>
             </div>
             <div id="navbar-items-box-2">

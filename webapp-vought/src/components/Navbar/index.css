@@ -1,4 +1,4 @@
-@import url(https://fonts.google.com/specimen/Inter+Tight?query=inter);
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&display=swap');
 
 * {
     box-sizing: border-box; /*Desconsidera o margin e o padding na hora de contar altura ou largura
@@ -68,4 +68,9 @@ body {
 
 #btn_entrar {
     margin-top: 10px;
+}
+
+a:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }

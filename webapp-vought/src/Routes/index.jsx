@@ -6,7 +6,8 @@ import Evento from '../Pages/Evento';
 import Home from '../Pages/Home';
 import Login from '../Pages/Login';
 import QuemSomos from '../Pages/QuemSomos';
-
+import EscolhaEvento from '../Pages/Escolha-Evento'
+import CrudEvento from '../Pages/Crud-Evento'
 const Rotas = () => {
   return (
     <BrowserRouter>
@@ -14,6 +15,8 @@ const Rotas = () => {
         <Route index element={<Home />} />
         <Route exact path="/quem-somos" element={<QuemSomos />} />
         <Route exact path="/evento" element={<Evento />} />
+        <Route exact path='/escolha-evento' element={<EscolhaEvento></EscolhaEvento>} />
+        <Route exact path='/crud-evento' element={<CrudEvento></CrudEvento>}/>
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cadastro" element={<Cadastro />} />
       </Routes>
