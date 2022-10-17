@@ -12,7 +12,7 @@ const Escolha = () => {
     <>
       <Navbar></Navbar>
       <div className="container">
-        <div className="containers" onClick={() => navigate("/crud-evento")}>
+        <div className="containers" onClick={() => navigate("/adiciona-evento")}>
           <div className="imagem_container">
           <img src={imgCriar} alt="" className="imagem" />
             </div>
@@ -25,7 +25,7 @@ const Escolha = () => {
             </div>
           </div>
         </div>
-        <div className="containers">
+        <div className="containers" onClick={() => navigate("/crud-evento")}>
         <div className="imagem_container">
           <img src={imgEditar} alt="" className="imagem" />
             </div>

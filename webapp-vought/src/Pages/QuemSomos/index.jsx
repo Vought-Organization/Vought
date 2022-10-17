@@ -17,49 +17,49 @@ const QuemSomos = () => {
         </header>
 
         <section id="conquistas">
-            <div class="headline">Nossas conquistas</div>
+            <div className="headline">Nossas conquistas</div>
             <div id="conquistas-container">
-                <h1 class="conquista">+500 <br/> CLIENTES <br/> ATENDIDOS</h1>
-                <h1 class="conquista">+500 <br /> COMPRAS <br /> EFETUADAS</h1>
-                <h1 class="conquista">+500 <br /> EVENTOS <br /> CADASTRADOS</h1>
+                <h1 className="conquista">+500 <br/> CLIENTES <br/> ATENDIDOS</h1>
+                <h1 className="conquista">+500 <br /> COMPRAS <br /> EFETUADAS</h1>
+                <h1 className="conquista">+500 <br /> EVENTOS <br /> CADASTRADOS</h1>
             </div>
         </section>
 
         <section id="depoimentos">
-            <div class="headline">Depoimentos</div>
+            <div className="headline">Depoimentos</div>
             <div id="depoimentos-container">
-                <div class="depoimento">
-                    <img src={FotoDepoimento} alt="" class="imagem_depoimento" />
-                    <p class="texto_depoimento">“Graças a Vought eu consigo achar lugares
+                <div className="depoimento">
+                    <img src={FotoDepoimento} alt="" className="imagem_depoimento" />
+                    <p className="texto_depoimento">“Graças a Vought eu consigo achar lugares
                         para ir no final de semana sem nenhum esforço.
                         Agilizou muito minha rotina e organização
                         de tempo.”</p>
-                        <h1 class="nome_depoimento">Igor Gomes</h1>
+                        <h1 className="nome_depoimento">Igor Gomes</h1>
                 </div>
-                <div class="depoimento">
-                    <img src={FotoDepoimento} alt="" class="imagem_depoimento" />
-                    <p class="texto_depoimento">“Com a disponibilidade de comprar os ingressos
+                <div className="depoimento">
+                    <img src={FotoDepoimento} alt="" className="imagem_depoimento" />
+                    <p className="texto_depoimento">“Com a disponibilidade de comprar os ingressos
                         por aqui mesmo sem precisar entrar em outro
                         site ou ir presencial comprar ajuda demais
                         minha rotina.”</p>
-                        <h1 class="nome_depoimento">Fernando Lima</h1>
+                        <h1 className="nome_depoimento">Fernando Lima</h1>
                 </div>
-                <div class="depoimento">
-                    <img src={FotoDepoimento} alt="" class="imagem_depoimento" />
-                    <p class="texto_depoimento">“Agora consigo ter muito mais visibilidade em
+                <div className="depoimento">
+                    <img src={FotoDepoimento} alt="" className="imagem_depoimento" />
+                    <p className="texto_depoimento">“Agora consigo ter muito mais visibilidade em
                         meus eventos e não tenho dor de cabeça na hora
                         de divulgação para vender os ingressos.”</p>
-                        <h1 class="nome_depoimento">Leticia Albuquerque</h1>
+                        <h1 className="nome_depoimento">Leticia Albuquerque</h1>
                 </div>
             </div>
         </section>
         <section id="beneficios">
-            <div class="headline">SOBRE NOSSA APLICAÇÃO E BENEFÍCIOS</div>
+            <div className="headline">SOBRE NOSSA APLICAÇÃO E BENEFÍCIOS</div>
             <div id="beneficios-container">
-                <div class="beneficio">
+                <div className="beneficio">
                   <img src={Dardo} alt="" />
                   <div className="texto">
-                  <h1 class="titulo">DIRETO AO PONTO</h1>
+                  <h1 className="titulo">DIRETO AO PONTO</h1>
                     <p>Nossa aplicação é direta ao ponto
                         e assim que entrar você ja pode utilizar.
                         Você só precisa do login quando for
@@ -67,10 +67,10 @@ const QuemSomos = () => {
                         interação melhor com o produto.</p>
                   </div>
                 </div>
-                <div class="beneficio">
+                <div className="beneficio">
                     <img src={Mapa} alt="" />
                     <div className="texto">
-                    <h1 class="titulo">BOA USABILIDADE</h1>
+                    <h1 className="titulo">BOA USABILIDADE</h1>
                     <p>Nossa ferramenta foi testada e é muito simples
                         de usar, basta você escrever o nome do
                         lugar que você quer ir ou filtrar algum
