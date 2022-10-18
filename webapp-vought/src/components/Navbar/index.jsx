@@ -9,7 +9,7 @@ const quem_somos = () => {
     <>
       <nav id="navbar">
         <div id="navbar-container">
-            <h1 class="logo">VOUGHT</h1>
+            <h1 className="logo">VOUGHT</h1>
             <div id="navbar-items-box">
                 <ul id="navbar-items-1">
                     <li><a onClick={() => navigate('/home')}>Home</a></li>
