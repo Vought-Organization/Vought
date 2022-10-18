@@ -9,28 +9,27 @@ import Button from '@mui/material/Button';
 import { useParams } from "react-router-dom";
 
 
+
 const editarEvento = () => {
   const { register, handleSubmit, reset} = useForm()
 
-  const {idEvent} = useParams()
+  const { id } = useParams()
 
   const navigate = useNavigate()
 
-
-
   useEffect(() => {
-    axios.get(`http://localhost:8080/v1/events/${idEvent}`)
+    axios.get(`http://localhost:8080/v1/events/${id}`)
     .then((response) => {
       reset(response.data)
     })
   }, [])
 
-  const addPost = data => axios.post("http://localhost:8080/v1/events", data)
+  const editPost = data => axios.put(`http://localhost:8080/v1/events/${id}`, data)
   .then(() => {
     console.log(data)
     console.log("Tudo certo!")
-    alert("Evento cadastrado com sucesso!")
-    navigate("/escolha-evento")
+    alert("Evento editado com sucesso!")
+    navigate("/crud-evento")
   }) .catch(() => {
     console.log(data)
     console.log("Alguma coisa deu errado!")
@@ -60,7 +59,7 @@ const editarEvento = () => {
                   <div className="container-input">
                     <p className="titulo_input">Categoria do evento <pre className="obrigatorio"> *</pre></p>
                     <div className="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="categoryEvent" {...register("categoryEvent")}/>
                     </div>
                   </div>
                   <div className="container-input" id="container-descricao">
@@ -68,9 +67,10 @@ const editarEvento = () => {
                     <div className="input_container">
                     <TextField
                       id="outlined-multiline-static"
-                      label="Descrição"
                       multiline
                       rows={4}
+                      name="description"
+                      {...register("description")}
                       fullWidth sx={{ m: 1 }}
                     />
                       </div>
@@ -78,7 +78,7 @@ const editarEvento = () => {
                     <div className="container-input">
                     <p className="titulo_input">Insira o Cep do local  <pre className="obrigatorio"> *</pre></p>
                     <div className="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="cep" {...register("cep")} />
                     </div>
                   </div>
 
@@ -94,23 +94,23 @@ const editarEvento = () => {
                   <div id="input-estado-cidade">
                   <p className="titulo_input">Estado  <pre className="obrigatorio"> *</pre></p>
                     <div id="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="state" {...register("state")}/>
                     </div>
                     <p className="titulo_input">Cidade  <pre className="obrigatorio"> *</pre></p>
                     <div id="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="city" {...register("city")}/>
                     </div>
                   </div>
                   </div>
                   <div className="container-input">
                     <p className="titulo_input">Data inicial do evento <pre className="obrigatorio"> *</pre></p>
                     <div className="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="startData" {...register("startData")}/>
                     </div>
                   </div>
                   <div className="container-input">
-                    <form className="input_container" id="button-publicar" onSubmit={handleSubmit(addPost)}>
-                    <Button variant="contained" type="submit">Publicar Evento</Button>
+                    <form className="input_container" id="button-publicar" onSubmit={handleSubmit(editPost)}>
+                    <Button variant="contained" type="submit">Editar Evento</Button>
                     </form>
                   </div>
                 </div>

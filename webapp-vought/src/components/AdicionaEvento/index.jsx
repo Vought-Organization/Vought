@@ -51,7 +51,7 @@ const adiciona = () => {
                   <div className="container-input">
                     <p className="titulo_input">Categoria do evento <pre className="obrigatorio"> *</pre></p>
                     <div className="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="categoryEvent" {...register("categoryEvent")} />
                     </div>
                   </div>
                   <div className="container-input" id="container-descricao">
@@ -62,14 +62,14 @@ const adiciona = () => {
                       label="Descrição"
                       multiline
                       rows={4}
-                      fullWidth sx={{ m: 1 }}
+                      fullWidth sx={{ m: 1 }} name="description" {...register("description")}
                     />
                       </div>
                     </div>
                     <div className="container-input">
                     <p className="titulo_input">Insira o Cep do local  <pre className="obrigatorio"> *</pre></p>
                     <div className="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="cep" {...register("cep")} />
                     </div>
                   </div>
 
@@ -85,18 +85,18 @@ const adiciona = () => {
                   <div id="input-estado-cidade">
                   <p className="titulo_input">Estado  <pre className="obrigatorio"> *</pre></p>
                     <div id="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="state" {...register("state")} />
                     </div>
                     <p className="titulo_input">Cidade  <pre className="obrigatorio"> *</pre></p>
                     <div id="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="city" {...register("city")} />
                     </div>
                   </div>
                   </div>
                   <div className="container-input">
                     <p className="titulo_input">Data inicial do evento <pre className="obrigatorio"> *</pre></p>
                     <div className="input_container">
-                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} />
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="startData" {...register("startData")}/>
                     </div>
                   </div>
                   <div className="container-input">
