@@ -1,0 +1,254 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+b,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.divCadastro {
+    height: 657px;
+    width: 600px;
+    background-color: #3A0635;
+    color: white;
+
+}
+
+.p1 {
+    position: absolute;
+    left: 10.43%;
+    right: 30.71%;
+    top: 36.96%;
+    bottom: 56.35%;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+.p2 {
+    position: absolute;
+    left: 6.65%;
+    right: 54.93%;
+    top: 44.92%;
+    bottom: 52.25%;
+    
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    
+    color: #FFFFFF;
+}
+
+.p3 {
+    position: absolute;
+    left: 14.65%;
+    right: 61.94%;
+    top: 49.00%;
+    bottom: 55.51%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #FFFFFF;
+
+}
+
+.botaoCadastrar {
+
+    box-sizing: border-box;
+
+    position: absolute;
+    left:19.76%;
+    right: 70.04%;
+    top: 55.50%;
+    bottom: 40.00%;
+    
+    color: white;
+    background: #3A0635;
+    border: 1px solid #FFFFFF;
+    border-radius: 24px;
+}
+
+h1 {
+    position: absolute;
+    left: 73.89%;
+    right: 16.39%;
+    top: 32.13%;
+    bottom: 63.18%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+
+    color: #8B8B8B;
+}
+
+.input1 {
+    position: absolute;
+    left: 65.21%;
+    right: 7.71%;
+    top: 42.09%;
+    bottom: 53.42%;
+
+    background: #D0D0D0;
+    border-radius: 11px;
+}
+
+.input2 {
+    position: absolute;
+    left: 65.21%;
+    right: 7.71%;
+    top: 48.14%;
+    bottom: 47.36%;
+
+    background: #D0D0D0;
+    border-radius: 11px;
+}
+
+.botaoEntrar {
+    position: absolute;
+    left: 70.28%;
+    right: 12.78%;
+    top: 57.91%;
+    bottom: 38.38%;
+
+    color: white;
+    background: #3A0635;
+    border-radius: 11px;
+}
+
+.p4 {
+    position: absolute;
+    left: 73.90%;
+    right: 17.01%;
+    top: 62.79%;
+    bottom: 35.64%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #3A0635;
+}
+
+.p5 {
+    position: absolute;
+    left: 75.76%;
+    right: 18.26%;
+    top: 64.90%;
+    bottom: 34.08%;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #3A0635;
+}
