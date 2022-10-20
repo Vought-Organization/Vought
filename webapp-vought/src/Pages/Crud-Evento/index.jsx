@@ -36,7 +36,7 @@ const CrudEvento = () => {
   return (
     <>
       <Navbar></Navbar>
-      <div id="container">
+      <div id="container-box">
       <div className="music-boxes">
             {
                 evento.map((evento) => {

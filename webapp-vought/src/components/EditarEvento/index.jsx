@@ -109,6 +109,12 @@ const editarEvento = () => {
                     </div>
                   </div>
                   <div className="container-input">
+                    <p className="titulo_input">Data final do evento <pre className="obrigatorio"> *</pre></p>
+                    <div className="input_container">
+                    <TextField id="filled-basic" fullWidth sx={{ m: 1 }} name="endData" {...register("endData")}/>
+                    </div>
+                  </div>
+                  <div className="container-input">
                     <form className="input_container" id="button-publicar" onSubmit={handleSubmit(editPost)}>
                     <Button variant="contained" type="submit">Editar Evento</Button>
                     </form>

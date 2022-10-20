@@ -20,7 +20,7 @@ const Login = () => {
           </div>
         </Grid>
         <Grid item xs={12} md={6}>
-          <h1>Login</h1>
+          <h1 id='login'>Login</h1>
           <input className="input1" type="Nome" placeholder="Nome" />
           <input className="input2" type="Email" placeholder="Email" />
 

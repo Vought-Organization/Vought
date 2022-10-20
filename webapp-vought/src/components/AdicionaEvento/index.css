@@ -26,6 +26,7 @@ body {
   margin-bottom: 20px;
   display: flex;
   overflow: auto;
+  border-radius: 10px;
 }
 
 #container-informacoes {
@@ -35,6 +36,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
   background-color: white;
+  border-radius: 10px;
 }
 
 #titulo {
@@ -107,5 +109,21 @@ body {
 #button-publicar {
   display: flex;
   flex-direction: row-reverse;
+}
+
+#input-da-data {
+  height: 60px;
+  border-radius: 5px;
+  border-width: 1px;
+  border: 1px solid rgba(82, 82, 82, 0.5);
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 60px;
+}
+
+#container-parte-1-form {
+  border-radius: 10px;
 }
 
