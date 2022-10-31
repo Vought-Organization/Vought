@@ -10,7 +10,7 @@ const Escolha = () => {
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar/>
       <div className="container">
         <div className="containers" onClick={() => navigate("/adiciona-evento")}>
           <div className="imagem_container">

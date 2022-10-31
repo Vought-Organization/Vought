@@ -18,10 +18,10 @@ const Rotas = () => {
         <Route index element={<Home />} />
         <Route exact path="/quem-somos" element={<QuemSomos />} />
         <Route exact path="/evento" element={<Evento />} />
-        <Route exact path='/escolha-evento' element={<EscolhaEvento></EscolhaEvento>} />
-        <Route exact path='/crud-evento' element={<CrudEvento></CrudEvento>}/>
-        <Route exact path='/adiciona-evento' element={<AdicionarEvento></AdicionarEvento>}/>
-        <Route exact path='/edita-evento/:id' element={<EditarEvento></EditarEvento>} />
+        <Route exact path='/escolha-evento' element={<EscolhaEvento/>} />
+        <Route exact path='/crud-evento' element={<CrudEvento/>}/>
+        <Route exact path='/adiciona-evento' element={<AdicionarEvento/>}/>
+        <Route exact path='/edita-evento/:id' element={<EditarEvento/>} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cadastro" element={<Cadastro />} />
       </Routes>

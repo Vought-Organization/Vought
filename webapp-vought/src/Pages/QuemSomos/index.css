@@ -202,7 +202,7 @@ body {
 
 /* FOOTER */
 #footer  {
-    height: 20vh;
+    height: 250px;
     background-color: #530A4C;
     color: #eee;
     display: flex;
