@@ -1,31 +1,22 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Grid,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
-import React, { useState } from 'react';
+import { Box, Button, Grid, Stack, Typography } from '@mui/material';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Maps from '../../components/Maps';
 
 import imageHome from '../../assets/imgs/home/image-banner.png';
 import NavBar from '../../components/Navbar';
 
+import Geocode from 'react-geocode';
+
 const places = [
   {
     id: 1,
-    evento: 'Jesus',
-    endereco: 'Av paulista 445',
+    evento: 'Eldorado',
+    endereco: 'Av rebouças 4456',
     coords: [
       {
-        lat: -23.556783,
-        lng: -46.661934,
+        lat: -23.571688,
+        lng: -46.696022,
       },
     ],
   },
@@ -42,12 +33,12 @@ const places = [
   },
   {
     id: 3,
-    evento: 'Jesus3',
+    evento: 'Joquei',
     endereco: 'Av paulista 445',
     coords: [
       {
-        lat: -23.557949,
-        lng: -46.662315,
+        lat: -23.582526,
+        lng: -46.699584,
       },
     ],
   },
@@ -57,30 +48,30 @@ const places = [
     endereco: 'Av paulista 445',
     coords: [
       {
-        lat: -23.557143,
-        lng: -46.664547,
+        lat: -23.534862,
+        lng: -46.634121,
       },
     ],
   },
   {
     id: 5,
-    evento: 'Jesus4',
+    evento: 'Ibirapuera',
     endereco: 'Av paulista 445',
     coords: [
       {
-        lat: -23.557143,
-        lng: -46.664547,
+        lat: -23.587218,
+        lng: -46.664037,
       },
     ],
   },
   {
     id: 6,
-    evento: 'Jesus4',
+    evento: 'Quarta Divisão',
     endereco: 'Av paulista 445',
     coords: [
       {
-        lat: -23.557143,
-        lng: -46.664547,
+        lat: -23.681282,
+        lng: -46.355625,
       },
     ],
   },
@@ -97,12 +88,12 @@ const places = [
   },
   {
     id: 8,
-    evento: 'Jesus4',
+    evento: 'Guaianazes',
     endereco: 'Av paulista 445',
     coords: [
       {
-        lat: -23.557143,
-        lng: -46.664547,
+        lat: -23.576639,
+        lng: -46.371823,
       },
     ],
   },
@@ -111,9 +102,30 @@ const places = [
 const Home = () => {
   const navigate = useNavigate();
 
+  useEffect(() => {
+    Geocode.setApiKey('AIzaSyBcrmgLdJ79VsDc5lbmueQQIakqiwAIg-Y');
+
+    // set response language. Defaults to english.
+    Geocode.setLanguage('pt');
+
+    // set response region. Its optional.
+    // A Geocoding request with region=es (Spain) will return the Spanish city.
+    Geocode.setRegion('br');
+    Geocode.fromAddress('Rua dos andradas 69').then(
+      (response) => {
+        const { lat, lng } = response.results[0].geometry.location;
+        console.log(lat, lng);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }, []);
+
   return (
     <Stack>
       <NavBar />
+      <Box></Box>
       <Grid container sx={{ alignItems: 'center', justifyContent: 'center' }}>
         <Grid container item xs={12} md={9}>
           <Grid
@@ -195,33 +207,6 @@ const Home = () => {
               </Typography>
             </Box>
           </Grid>
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid container item md={9} xs={12} spacing={1}>
-          <Grid xs={12} md={6}>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="../../assets/imgs/home/farol-santander.jpg"
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Lizard
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with
-                    over 6,000 species, ranging across all continents except
-                    Antarctica
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-          <Grid xs={12} md={6}></Grid>
         </Grid>
       </Grid>
       <Box>

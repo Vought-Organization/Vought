@@ -8,15 +8,25 @@ import React, {
 
 import GoogleMapReact from 'google-map-react';
 
-import { Box, Paper, Popover, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  IconButton,
+  InputAdornment,
+  Paper,
+  TextField,
+  Typography,
+} from '@mui/material';
+
+import SearchIcon from '@mui/icons-material/Search';
+
+import { calculaDistancia } from '../../Utils/calculaDistancia';
 
 import stylesMap from './stylesMap';
-import { calculaDistancia } from '../../Utils/calculaDistancia';
 
 function Maps({ places }) {
   const [geo, setGeo] = useState({});
+  const [value, setValue] = useState(geo);
   const [eventZoom, setEventZoom] = useState(14);
-  const [eventGeo, setEventGeo] = useState({});
   const [filtro, setFiltro] = useState('');
   const [child, setChild] = useState();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -25,18 +35,29 @@ function Maps({ places }) {
     if (!navigator.geolocation) {
       console.log('Localização não habilitada');
     } else {
-      navigator.geolocation.getCurrentPosition(success, console.log('ok'));
+      navigator.geolocation.getCurrentPosition((position) => {
+        setGeo({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+        console.log(position.coords);
+      });
     }
   }, []);
 
-  function success(position) {
-    console.log(`lat: ${position.coords.latitude}`);
-    console.log(`lng: ${position.coords.longitude}`);
-    setGeo({
-      lat: position.coords.latitude,
-      lng: position.coords.longitude,
-    });
-  }
+  useEffect(() => {
+    let exec;
+    if (geo !== {}) {
+      exec = setTimeout(() => {
+        setValue(geo);
+        console.log('Estou aqui');
+      }, 1000);
+    }
+
+    return () => {
+      clearTimeout(exec);
+    };
+  }, [geo]);
 
   const filterPlaces = places?.filter((lugares) => {
     if (lugares.evento.toLowerCase().includes(filtro.toLowerCase())) {
@@ -68,16 +89,14 @@ function Maps({ places }) {
 
   const handleClickEvent = useCallback(
     (evento) => {
-      if (eventZoom !== 20) {
-        setEventZoom(20);
-      }
+      setEventZoom(18);
 
-      setEventGeo({
+      setValue({
         lat: evento.coords[0].lat,
         lng: evento.coords[0].lng,
       });
     },
-    [eventZoom, setEventGeo, setEventZoom]
+    [eventZoom, setValue, setEventZoom]
   );
 
   const handleOpenPopOver = (event) => {
@@ -114,17 +133,48 @@ function Maps({ places }) {
           },
         }}
       >
-        <TextField fullWidth onChange={handleFilter} />
+        <TextField
+          InputProps={{
+            endAdornment: (
+              <InputAdornment
+                position="end"
+                sx={{ display: 'flex', alignItems: 'center' }}
+              >
+                <IconButton>
+                  <SearchIcon />
+                </IconButton>
+              </InputAdornment>
+            ),
+          }}
+          fullWidth
+          onChange={handleFilter}
+        />
         <Box
           sx={{
             overflowY: 'auto',
             maxHeight: 'calc(100% - 100px)',
             marginTop: '20px',
+
+            '&::-webkit-scrollbar': {
+              width: '11px',
+              scrollbarWidth: 'thin',
+            },
+
+            '&::-webkit-scrollbar-track': {
+              background: (theme) => theme.palette.background.default,
+            },
+
+            '&::-webkit-scrollbar-thumb': {
+              backgroundColor: (theme) => theme.palette.grey[500],
+              borderRadius: '6px',
+              border: (theme) =>
+                `3px solid ${theme.palette.background.default}`,
+            },
           }}
         >
           {filterPlaces?.map((filter) => (
             <Paper
-              elevation={1}
+              elevation={2}
               sx={{ margin: '10px 2px' }}
               onClick={() => handleClickEvent(filter)}
             >
@@ -134,6 +184,7 @@ function Maps({ places }) {
                   display: 'flex',
                   flexDirection: 'column',
                   padding: '5px 10px',
+                  margin: '0 5px',
                 }}
               >
                 <Box>{filter.evento}</Box>
@@ -154,15 +205,15 @@ function Maps({ places }) {
       </Box>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyBcrmgLdJ79VsDc5lbmueQQIakqiwAIg-Y' }}
-        center={eventGeo == {} ? geo : eventGeo}
-        defaultCenter={{ lat: -23.556783, lng: -46.661934 }}
-        defaultZoom={14}
-        // zoom={eventZoom}
+        center={value}
+        defaultCenter={geo}
+        defaultZoom={20}
+        zoom={eventZoom}
         margin={[50, 50, 50, 50]}
         options={{
           disableDefaultUI: true,
           zoomControl: true,
-          styles: stylesMap,
+          style: stylesMap,
         }}
         yesIWantToUseGoogleMapApiInternals
         onChildClick={(child) => setChild(child)}
@@ -170,7 +221,7 @@ function Maps({ places }) {
         <Box
           lat={geo.lat}
           lng={geo.lng}
-          style={{
+          sx={{
             position: 'absolute',
             transform: 'translate(-50%, -50%)',
             zIndex: 1,
@@ -182,7 +233,7 @@ function Maps({ places }) {
         {filterPlaces?.map((pla) => (
           <Box
             key={pla.id}
-            style={{
+            sx={{
               position: 'absolute',
               transform: 'translate(-50%, -50%)',
               zIndex: 1,
