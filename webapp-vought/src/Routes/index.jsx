@@ -10,6 +10,7 @@ import EscolhaEvento from '../Pages/Escolha-Evento'
 import CrudEvento from '../Pages/Crud-Evento'
 import AdicionarEvento from '../Pages/AdicionarEvento';
 import EditarEvento from '../Pages/EditarEvento';
+import FormEvento from '../Pages/FormAdicionarEvento'
 
 const Rotas = () => {
   return (
@@ -24,6 +25,7 @@ const Rotas = () => {
         <Route exact path='/edita-evento/:id' element={<EditarEvento/>} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/cadastro" element={<Cadastro />} />
+        <Route exact path="/adicionar-evento" element={<FormEvento />}></Route>
       </Routes>
     </BrowserRouter>
   );

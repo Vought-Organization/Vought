@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from '../../components/Navbar/index'
-import FormEvento from '../../components/AdicionaEvento/index'
+import FormEvento from '../../components/AdicionarEvento/index'
 
 const adicionarEvento = () => {
   return (
