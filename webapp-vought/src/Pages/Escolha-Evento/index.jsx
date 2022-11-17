@@ -8,9 +8,14 @@ import { useNavigate } from "react-router-dom";
 const Escolha = () => {
   const navigate = useNavigate();
 
+
+
+
+
   return (
     <>
       <Navbar/>
+
       <div className="container">
         <div className="containers" onClick={() => navigate("/adiciona-evento")}>
           <div className="imagem_container">
