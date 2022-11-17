@@ -1,4 +1,15 @@
-import { Box, Button, Card, CardActionArea, CardContent, CardMedia, Grid, Stack, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Grid,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Maps from '../../components/Maps';
@@ -179,6 +190,9 @@ const Home = () => {
                 VOUGHT você acha seu evento preferido no piscar de olhos.
               </Typography>
               <Typography>Clique e ache um evento com o seu gosto. </Typography>
+              <Typography>
+                <Button>Encontrar eventos</Button>
+              </Typography>
             </Box>
           </Grid>
         </Grid>

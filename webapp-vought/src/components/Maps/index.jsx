@@ -14,25 +14,12 @@ import stylesMap from './stylesMap';
 import { calculaDistancia } from '../../Utils/calculaDistancia';
 
 function Maps({ places }) {
-  const [geo, setGeo] = useState({ lat: 0, lng: 0 });
+  const [geo, setGeo] = useState({});
   const [eventZoom, setEventZoom] = useState(14);
-  const [eventGeo, setEventGeo] = useState({ lat: 0, lng: 0 });
+  const [eventGeo, setEventGeo] = useState({});
   const [filtro, setFiltro] = useState('');
   const [child, setChild] = useState();
   const [anchorEl, setAnchorEl] = useState(null);
-
-  function success(position) {
-    console.log(`lat: ${position.coords.latitude}`);
-    console.log(`lng: ${position.coords.longitude}`);
-    setGeo({ lat: position.coords.latitude, lng: position.coords.longitude });
-  }
-
-  const filterPlaces = places?.filter((lugares) => {
-    if (lugares.evento.toLowerCase().includes(filtro.toLowerCase())) {
-      return lugares;
-    }
-    return null;
-  });
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -41,6 +28,22 @@ function Maps({ places }) {
       navigator.geolocation.getCurrentPosition(success, console.log('ok'));
     }
   }, []);
+
+  function success(position) {
+    console.log(`lat: ${position.coords.latitude}`);
+    console.log(`lng: ${position.coords.longitude}`);
+    setGeo({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+    });
+  }
+
+  const filterPlaces = places?.filter((lugares) => {
+    if (lugares.evento.toLowerCase().includes(filtro.toLowerCase())) {
+      return lugares;
+    }
+    return null;
+  });
 
   const debounce = (func) => {
     let timer;
@@ -69,12 +72,12 @@ function Maps({ places }) {
         setEventZoom(20);
       }
 
-      setGeo({
+      setEventGeo({
         lat: evento.coords[0].lat,
         lng: evento.coords[0].lng,
       });
     },
-    [eventZoom, setGeo, setEventZoom]
+    [eventZoom, setEventGeo, setEventZoom]
   );
 
   const handleOpenPopOver = (event) => {
@@ -120,57 +123,41 @@ function Maps({ places }) {
           }}
         >
           {filterPlaces?.map((filter) => (
-            <>
-              <Paper
-                elevation={1}
-                sx={{ margin: '10px 2px' }}
-                onClick={() => handleClickEvent(filter)}
+            <Paper
+              elevation={1}
+              sx={{ margin: '10px 2px' }}
+              onClick={() => handleClickEvent(filter)}
+            >
+              <Box
+                sx={{
+                  gap: 2,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  padding: '5px 10px',
+                }}
               >
-                <Box
-                  sx={{
-                    gap: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    padding: '5px 10px',
-                  }}
-                >
-                  <Box>{filter.evento}</Box>
-                  <Box>{filter.endereco}</Box>
-                  <Typography>
-                    {`Distância
+                <Box>{filter.evento}</Box>
+                <Box>{filter.endereco}</Box>
+                <Typography>
+                  {`Distância
                 ${calculaDistancia(
                   geo.lat,
                   geo.lng,
                   filter.coords[0].lat,
                   filter.coords[0].lng
                 )} km`}
-                  </Typography>
-                </Box>
-              </Paper>
-              <Popover
-                id={id}
-                open={open}
-                anchorEl={anchorEl}
-                onClose={handleClosePopOver}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-              >
-                <Typography sx={{ p: 2 }}>
-                  The content of the Popover.
                 </Typography>
-              </Popover>
-            </>
+              </Box>
+            </Paper>
           ))}
         </Box>
       </Box>
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyBcrmgLdJ79VsDc5lbmueQQIakqiwAIg-Y' }}
-        center={eventGeo}
-        defaultCenter={{ lat: -23.557865, lng: -46.661668 }}
+        center={eventGeo == {} ? geo : eventGeo}
+        defaultCenter={{ lat: -23.556783, lng: -46.661934 }}
         defaultZoom={14}
-        zoom={eventZoom}
+        // zoom={eventZoom}
         margin={[50, 50, 50, 50]}
         options={{
           disableDefaultUI: true,
@@ -191,7 +178,7 @@ function Maps({ places }) {
             borderRadius: '50%',
             backgroundColor: 'red',
           }}
-        ></Box>
+        />
         {filterPlaces?.map((pla) => (
           <Box
             key={pla.id}
