@@ -1,14 +1,16 @@
 import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBarDinamica from './NavBarDinamica';
 
 const NavBar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Grid
         container
         justifyContent="center"
-        sx={{ backgroundColor: '#3A0635', height: '70px' }}
+        sx={{ backgroundColor: '#530a4c', height: '70px' }}
       >
         <Grid item xs={11} md={10}>
           <Box
@@ -21,7 +23,6 @@ const NavBar = () => {
           >
             <Box
               sx={{
-                backgroundColor: '#3A0635',
                 height: '100%',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -29,7 +30,7 @@ const NavBar = () => {
                 flex: 1,
                 maxWidth: {
                   xs: 300,
-                  md: 460,
+                  md: 520,
                 },
               }}
             >
@@ -44,15 +45,21 @@ const NavBar = () => {
                 }}
               >
                 <Button
-                  sx={{ color: (theme) => theme.palette.common.white }}
-                  size="small"
+                  sx={{
+                    color: (theme) => theme.palette.common.white,
+                    backgroundColor: '#3A0635',
+                  }}
+                  onClick={() => navigate('/')}
                 >
                   Home
                 </Button>
                 <Button
-                  sx={{ color: (theme) => theme.palette.common.white }}
-                  size="small"
+                  sx={{
+                    color: (theme) => theme.palette.common.white,
+                    backgroundColor: '#3A0635',
+                  }}
                   variant="text"
+                  onClick={() => navigate('quem-somos')}
                 >
                   Quem somos nós
                 </Button>

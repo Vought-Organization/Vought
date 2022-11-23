@@ -74,7 +74,6 @@ const NavBarDinamica = () => {
               vertical: 'top',
               horizontal: 'right',
             }}
-
             transformOrigin={{
               vertical: 'top',
               horizontal: 'right',
@@ -98,9 +97,13 @@ const NavBarDinamica = () => {
     );
   } else {
     return (
-      <Box sx={{ maxWidth: 440 }}>
-        <Button onClick={() => navigate('/cadastro')}>Criar Conta</Button>
-        <Button onClick={() => navigate('/login')}>Entrar</Button>
+      <Box sx={{ maxWidth: 440, gap: 5, display: 'flex' }}>
+        <Button variant="contained" onClick={() => navigate('/cadastro')}>
+          Criar Conta
+        </Button>
+        <Button variant="contained" onClick={() => navigate('/login')}>
+          Entrar
+        </Button>
       </Box>
     );
   }
