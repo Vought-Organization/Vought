@@ -1,0 +1,24 @@
+.divPai{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   margin-top: 25px;
+   width: 100%;
+   height: 297px;
+   align-items: center;
+   padding: 15px;
+   padding-top: 90px;
+   
+}
+img{
+    cursor: pointer;
+    width: 600px;
+    right: 1300px;
+}
+.mensagemErro{
+    color: #000;
+    font-size: 24px;
+}
+.telaInicial{
+    color: purple;
+    cursor: pointer;
+}
