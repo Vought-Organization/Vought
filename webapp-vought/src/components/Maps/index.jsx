@@ -1,35 +1,19 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import GoogleMapReact from 'google-map-react';
 
-import {
-  Box,
-  IconButton,
-  InputAdornment,
-  Paper,
-  TextField,
-  Typography,
-} from '@mui/material';
-
-import SearchIcon from '@mui/icons-material/Search';
+import { Box, Paper, Typography } from '@mui/material';
 
 import { calculaDistancia } from '../../Utils/calculaDistancia';
 
 import stylesMap from './stylesMap';
+import BarraPesquisa from './BarraPesquisa';
 
 function Maps({ places }) {
   const [geo, setGeo] = useState({});
   const [value, setValue] = useState(geo);
   const [eventZoom, setEventZoom] = useState(14);
   const [filtro, setFiltro] = useState('');
-  const [child, setChild] = useState();
-  const [anchorEl, setAnchorEl] = useState(null);
 
   useEffect(() => {
     if (!navigator.geolocation) {
@@ -47,7 +31,7 @@ function Maps({ places }) {
 
   useEffect(() => {
     let exec;
-    if (geo !== {}) {
+    if (geo) {
       exec = setTimeout(() => {
         setValue(geo);
         console.log('Estou aqui');
@@ -60,149 +44,33 @@ function Maps({ places }) {
   }, [geo]);
 
   const filterPlaces = places?.filter((lugares) => {
-    if (lugares.evento.toLowerCase().includes(filtro.toLowerCase())) {
+    if (
+      lugares.evento.toLowerCase().includes(filtro.toLowerCase()) ||
+      lugares.endereco.toLowerCase().includes(filtro.toLowerCase())
+    ) {
       return lugares;
     }
     return null;
   });
 
-  const debounce = (func) => {
-    let timer;
-    return (...args) => {
-      const context = this;
-      if (timer) {
-        clearTimeout(timer);
-      }
-
-      timer = setTimeout(() => {
-        timer = null;
-        func.apply(context, args);
-      }, 1000);
-    };
-  };
-
-  const handleChange = (e) => {
-    setFiltro(e.target.value);
-  };
-
-  const handleFilter = useCallback(debounce(handleChange), []);
-
-  const handleClickEvent = useCallback(
-    (evento) => {
-      setEventZoom(18);
-
-      setValue({
-        lat: evento.coords[0].lat,
-        lng: evento.coords[0].lng,
-      });
-    },
-    [eventZoom, setValue, setEventZoom]
-  );
-
-  const handleOpenPopOver = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClosePopOver = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
-
   return (
     <Box
       sx={{
         width: '100%',
-        height: '80vh',
+        height: {
+          sm: '60vh',
+          md: '500px',
+        },
         position: 'relative',
       }}
     >
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 10,
-          left: 6,
-          padding: 2,
-          backgroundColor: 'white',
-          zIndex: 1,
-          height: 'calc(100% - 50px)',
-          width: {
-            md: '400px',
-            xs: '200px',
-          },
-        }}
-      >
-        <TextField
-          InputProps={{
-            endAdornment: (
-              <InputAdornment
-                position="end"
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                <IconButton>
-                  <SearchIcon />
-                </IconButton>
-              </InputAdornment>
-            ),
-          }}
-          fullWidth
-          onChange={handleFilter}
-        />
-        <Box
-          sx={{
-            overflowY: 'auto',
-            maxHeight: 'calc(100% - 100px)',
-            marginTop: '20px',
-
-            '&::-webkit-scrollbar': {
-              width: '11px',
-              scrollbarWidth: 'thin',
-            },
-
-            '&::-webkit-scrollbar-track': {
-              background: (theme) => theme.palette.background.default,
-            },
-
-            '&::-webkit-scrollbar-thumb': {
-              backgroundColor: (theme) => theme.palette.grey[500],
-              borderRadius: '6px',
-              border: (theme) =>
-                `3px solid ${theme.palette.background.default}`,
-            },
-          }}
-        >
-          {filterPlaces?.map((filter) => (
-            <Paper
-              elevation={2}
-              sx={{ margin: '10px 2px' }}
-              onClick={() => handleClickEvent(filter)}
-            >
-              <Box
-                sx={{
-                  gap: 2,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  padding: '5px 10px',
-                  margin: '0 5px',
-                }}
-              >
-                <Box>{filter.evento}</Box>
-                <Box>{filter.endereco}</Box>
-                <Typography>
-                  {`Distância
-                ${calculaDistancia(
-                  geo.lat,
-                  geo.lng,
-                  filter.coords[0].lat,
-                  filter.coords[0].lng
-                )} km`}
-                </Typography>
-              </Box>
-            </Paper>
-          ))}
-        </Box>
-      </Box>
+      <BarraPesquisa
+        setFiltro={setFiltro}
+        setEventZoom={setEventZoom}
+        setValue={setValue}
+        filterPlaces={filterPlaces}
+        geo={geo}
+      />
       <GoogleMapReact
         bootstrapURLKeys={{ key: 'AIzaSyBcrmgLdJ79VsDc5lbmueQQIakqiwAIg-Y' }}
         center={value}
@@ -212,7 +80,8 @@ function Maps({ places }) {
         margin={[50, 50, 50, 50]}
         options={{
           disableDefaultUI: true,
-          zoomControl: true,
+          zoomControl: false,
+          gestureHandling: 'none',
           style: stylesMap,
         }}
         yesIWantToUseGoogleMapApiInternals
@@ -222,12 +91,26 @@ function Maps({ places }) {
           lat={geo.lat}
           lng={geo.lng}
           sx={{
+            // position: 'absolute',
+            // transform: 'translate(-50%, -50%)',
+            // zIndex: 1,
+            // padding: '6px',
+            // borderRadius: '50%',
+            // backgroundColor: 'red',
             position: 'absolute',
+            top: '50%',
+            left: '50',
+            width: '18px',
+            height: '18px',
+            backgroundColor: '#000',
+            border: '2px solid #fff',
+            borderRadius: '100',
+            userSelect: 'none',
             transform: 'translate(-50%, -50%)',
-            zIndex: 1,
-            padding: '6px',
-            borderRadius: '50%',
-            backgroundColor: 'red',
+            cursor: 'pointer',
+            '&:hover': {
+              zIndex: '1',
+            },
           }}
         />
         {filterPlaces?.map((pla) => (
@@ -241,7 +124,6 @@ function Maps({ places }) {
             }}
             lat={pla.coords[0].lat}
             lng={pla.coords[0].lng}
-            onClick={handleOpenPopOver}
           >
             <Paper
               elevation={1}
@@ -255,13 +137,12 @@ function Maps({ places }) {
             >
               <Typography gutterBottom>{pla.evento}</Typography>
               <Typography>
-                {`Distância
-                ${calculaDistancia(
+                {calculaDistancia(
                   geo.lat,
                   geo.lng,
                   pla.coords[0].lat,
                   pla.coords[0].lng
-                )} km`}
+                )}
               </Typography>
             </Paper>
           </Box>

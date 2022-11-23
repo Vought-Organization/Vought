@@ -1,4 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
+
+import { useQuery } from 'react-query';
 
 import Grid from '@mui/material/Grid';
 import {
@@ -11,29 +13,57 @@ import {
 } from '@mui/material';
 import useStyles from './styles';
 import { Stack } from '@mui/system';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { validationSchema } from './validate';
-import VisibilityIcon from '@mui/material/Icon';
+import { acessoUsuario } from '../../Services/Usuario/acessoUsuario';
+import { useAuth } from '../../Context/useAuth';
 
 const initialValues = {
-  email: '',
+  userName: '',
   senha: '',
-};
-
-const user = {
-  email: 'email_',
 };
 
 const Login = () => {
   const styles = useStyles();
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
+  const { signed, user, loginUsuario, logoutUsuario } = useAuth();
 
   const theme = useTheme();
   const media = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleSubmit = useCallback((values) => {
-    // if(values.email)
-  }, []);
+  const { data } = useQuery(['login'], () => acessoUsuario());
+
+  useEffect(() => {
+    let timer;
+    if (errorMessage !== '') {
+      timer = setTimeout(() => setErrorMessage(''), 3000);
+    }
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [errorMessage]);
+
+  const handleSubmit = useCallback(
+    (values) => {
+      console.log(values.userName);
+      console.log(data?.data);
+      const userInfo = data?.data.filter(
+        (item) => item.userName === values.userName
+      );
+
+      console.log(userInfo);
+      if (!!userInfo.length) {
+        loginUsuario(userInfo[0]);
+        navigate('/');
+      } else {
+        setErrorMessage('userName ou senha inválido');
+      }
+    },
+    [data, loginUsuario]
+  );
 
   return (
     <Formik
@@ -117,13 +147,13 @@ const Login = () => {
                   </Typography>
                   <Stack spacing={1}>
                     <TextField
-                      {...getFieldProps('email')}
+                      {...getFieldProps('userName')}
                       sx={styles.root}
-                      label="Email"
+                      label="userName"
                       variant="filled"
                       fullWidth
-                      helperText={errors.email}
-                      error={!!errors.email}
+                      helperText={errors.userName}
+                      error={!!errors.userName}
                     />
                     <TextField
                       {...getFieldProps('senha')}
@@ -140,7 +170,9 @@ const Login = () => {
                         ),
                       }}
                     />
+                    <div>{JSON.stringify(user)}</div>
                   </Stack>
+                  {errorMessage !== '' && <div>{errorMessage}</div>}
                   <Stack spacing={1}>
                     <Button variant="contained" type="submit">
                       Entrar

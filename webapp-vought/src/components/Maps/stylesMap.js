@@ -22,7 +22,7 @@ export default [
     elementType: 'labels',
     stylers: [
       {
-        visibility: 'on',
+        visibility: 'off',
       },
     ],
   },

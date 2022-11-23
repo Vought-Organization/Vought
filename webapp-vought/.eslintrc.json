@@ -12,7 +12,7 @@
   "plugins": ["react"],
   "rules": {
     "react/jsx-no-useless-fragment": "off",
-    "no-console": "off",
+    "no-console": "warn",
     "no-unused-vars": "warn",
     "react/function-component-definition": "airbnb"
   }
