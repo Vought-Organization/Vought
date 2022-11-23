@@ -37,7 +37,6 @@ const Cadastro = () => {
     cpf: '',
     senha: '',
     confirmarSenha: '',
-    cpf: '',
     organize: false,
     telefone: '',
     cep: '',

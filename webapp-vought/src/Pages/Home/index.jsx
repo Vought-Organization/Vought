@@ -146,7 +146,7 @@ const Home = () => {
           alignItems: 'center',
           justifyContent: 'center',
           padding: {
-            xs: '0 30px',
+            xs: '0 10px',
             sm: '0',
           },
         }}
@@ -154,8 +154,8 @@ const Home = () => {
         <Grid container item xs={11} md={10}>
           <Grid
             item
-            sm={12}
-            md={6}
+            xs={12}
+            sm={6}
             sx={{ display: 'flex', justifyContent: 'center' }}
             spacing={2}
           >
@@ -164,21 +164,35 @@ const Home = () => {
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
-                objectFit: 'contain',
+                objectFit: {
+                  xs: 'contain',
+                  sm: {},
+                },
                 maxHeight: {
                   xs: '300px',
                   sm: '430px',
-                  md: '450px',
                 },
               }}
             >
-              <img src={imageHome} alt="" style={{ height: '100%' }} />
+              <img
+                src={imageHome}
+                alt=""
+                style={{
+                  height: '100%',
+                  width: '100%',
+                  objectFit: {
+                    xs: 'cover',
+                    xl: {},
+                  },
+                  backgroundSize: 'cover',
+                }}
+              />
             </Box>
           </Grid>
           <Grid
             item
-            sm={12}
-            md={6}
+            xs={12}
+            sm={6}
             sx={{
               padding: {
                 xs: '10px 20px',
@@ -236,10 +250,10 @@ const Home = () => {
             </Box>
           </Grid>
         </Grid>
+        <Grid item xs={12}>
+          <Maps places={places ?? []} />
+        </Grid>
       </Grid>
-      <Box>
-        <Maps places={places ?? []} />
-      </Box>
     </Stack>
   );
 };
