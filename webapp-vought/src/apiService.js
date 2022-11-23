@@ -4,6 +4,7 @@ import axios from 'axios'; // importando a biblioteca "axios"
 export const useServices = () => {
   const users = axios.create({
     baseURL: 'http://localhost:8080/v1/users',
+    headers: { 'Content-Type': 'application/json' },
   });
 
   const tickets = axios.create({

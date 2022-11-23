@@ -1,44 +1,55 @@
+import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
-import './index.css';
-import { useNavigate } from 'react-router-dom';
+import NavBarDinamica from './NavBarDinamica';
 
 const NavBar = () => {
-  const navigate = useNavigate();
-
   return (
-    <>
-      <nav id="navbar">
-        <div id="navbar-container">
-          <h1 className="logo">VOUGHT</h1>
-          <div id="navbar-items-box">
-            <ul id="navbar-items-1">
-              <li>
-                <a onClick={() => navigate('/home')}>Home</a>
-              </li>
-              <li>
-                <a onClick={() => navigate('/quem-somos')}>Quem somos</a>
-              </li>
-              <li>
-                <a onClick={() => navigate('/escolha-evento')}>Evento</a>
-              </li>
-            </ul>
-          </div>
-          <div id="navbar-items-box-2">
-            <ul id="navbar-items-2">
-              <li id="btn_entrar">
-                {' '}
-                <a onClick={() => navigate('/login')}>Cadastrar</a>
-              </li>
-              <li>
-                <button id="btn_criar_conta" onClick={() => navigate('/login')}>
-                  Entrar
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </>
+    <Grid
+      container
+      sx={{ height: '70px', backgroundColor: 'red' }}
+      justifyContent="center"
+    >
+      <Grid item xs={11} md={10}>
+        <Box
+          sx={{
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+          }}
+        >
+          <Box
+            sx={{
+              backgroundColor: 'blueviolet',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flex: 1,
+              maxWidth: {
+                xs: 300,
+                md: 460,
+              },
+            }}
+          >
+            <Typography>Home</Typography>
+            <Box
+              sx={{
+                backgroundColor: 'pink',
+                height: '100%',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <Typography>Home</Typography>
+              <Typography>Quem somos nós</Typography>
+            </Box>
+          </Box>
+          <NavBarDinamica />
+        </Box>
+      </Grid>
+    </Grid>
   );
 };
 
