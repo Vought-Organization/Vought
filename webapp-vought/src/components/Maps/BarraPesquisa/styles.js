@@ -23,6 +23,27 @@ const useStyles = () => ({
       scrollbarWidth: 'thin',
     },
 
+    '&::-webkit-scrollbar-track': {
+      background: (theme) => theme.palette.background.default,
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: (theme) => theme.palette.grey[500],
+      borderRadius: '6px',
+      border: (theme) => `3px solid ${theme.palette.background.default}`,
+    },
+  },
+
+  gridBox: {
+    overflowY: 'auto',
+    maxHeight: 'calc(100% - 100px)',
+    marginTop: '20px',
+
+    '&::-webkit-scrollbar': {
+      width: '11px',
+      scrollbarWidth: 'thin',
+    },
+
     // '&::-webkit-scrollbar-track': {
     //   background: (theme) => theme.palette.background.default,
     // },

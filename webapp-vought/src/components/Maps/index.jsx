@@ -58,7 +58,7 @@ function Maps({ places }) {
       sx={{
         width: '100%',
         height: {
-          sm: '60vh',
+          sm: '80vh',
           md: '500px',
         },
         position: 'relative',
