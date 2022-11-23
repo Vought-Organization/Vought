@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 
 import {
   Box,
+  Grid,
   IconButton,
   InputAdornment,
   Paper,
@@ -66,34 +67,79 @@ const BarraPesquisa = ({
               sx={{ margin: '10px 2px' }}
               onClick={() => handleClickEvent(filter)}
             >
-              <Box
+              <Grid
+                container
                 sx={{
-                  gap: 2,
                   display: 'flex',
-                  flexDirection: 'column',
-                  padding: '5px 10px',
-                  margin: '0 5px',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexDirection: {
+                    sm: 'column-reverse',
+                    md: 'row',
+                    overflowY: 'auto',
+                  },
                 }}
               >
-                <Box>{filter.evento}</Box>
-                <Box>{filter.endereco}</Box>
-                <Typography>
-                  {`Distância
+                <Grid item sm={12} md={10} alignContent="center">
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      padding: '5px 10px',
+                      margin: '0 5px',
+                    }}
+                  >
+                    <Typography variant="caption">{filter.evento}</Typography>
+                    <Typography variant="caption">{filter.endereco}</Typography>
+                    <Typography variant="caption">
+                      {`Distância
           ${calculaDistancia(
             geo.lat,
             geo.lng,
             filter.coords[0].lat,
             filter.coords[0].lng
           )}`}
-                </Typography>
-              </Box>
-              <Box height={30}>
-                <img
-                  src={`data:image/png;base64,${filter.image}`}
-                  alt="Jesus"
-                  st={{ height: '100%' }}
-                />
-              </Box>
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid
+                  item
+                  sm={12}
+                  md={2}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    padding: {
+                      sm: 0,
+                      md: '0 10px',
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      width: '100%',
+                      borderRadius: '5px',
+                      height: {
+                        sm: '100px',
+                        md: '50px',
+                      },
+                    }}
+                  >
+                    <img
+                      src={`data:image/jpg;base64,${filter.image}`}
+                      alt="Jesus"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: '5px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  </Box>
+                </Grid>
+              </Grid>
             </Paper>
           ))
         ) : (
