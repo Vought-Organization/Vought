@@ -12,6 +12,7 @@ import CrudEvento from '../Pages/Crud-Evento';
 import AdicionarEvento from '../Pages/AdicionarEvento';
 import EditarEvento from '../Pages/EditarEvento';
 import FormEvento from '../Pages/FormAdicionarEvento';
+import NotFound from '../Pages/NotFound';
 
 const Rotas = () => {
   const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const Rotas = () => {
           <Route exact path="/edita-evento/:id" element={<EditarEvento />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/cadastro" element={<Cadastro />} />
+          <Route exact path="*" element={<NotFound/>}/>
           <Route
             exact
             path="/adicionar-evento"
