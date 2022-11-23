@@ -7,6 +7,12 @@ import {
   Button,
   useMediaQuery,
   useTheme,
+  FormControl,
+  FormLabel,
+  FormGroup,
+  FormControlLabel,
+  Switch,
+  Box,
 } from '@mui/material';
 import useStyles from './styles';
 import { Stack } from '@mui/system';
@@ -14,6 +20,8 @@ import { Link } from 'react-router-dom';
 import { Formik } from 'formik';
 import { useCallback } from 'react';
 import { validationSchema } from './validate';
+import { useMutation } from 'react-query';
+import { cadastroUsuario } from '../../Services/Usuario/acessoUsuario';
 
 const Cadastro = () => {
   const styles = useStyles();
@@ -21,15 +29,33 @@ const Cadastro = () => {
   const theme = useTheme();
   const media = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const { mutate } = useMutation((entrada) => cadastroUsuario(entrada));
+
   const initialValues = {
     nome: '',
     email: '',
     cpf: '',
     senha: '',
     confirmarSenha: '',
+    cpf: '',
+    organize: false,
+    telefone: '',
+    cep: '',
   };
 
-  const handleSubmit = useCallback((values) => {}, []);
+  const handleSubmit = useCallback((values) => {
+    mutate({
+      userName: values.nome,
+      email: values.email,
+      password: values.senha,
+      photoProfile: '',
+      cpf: values.cpf,
+      nickname: '',
+      organize: values.organize,
+      telefone: values.telefone,
+      cep: values.cep,
+    });
+  }, []);
 
   return (
     <Formik
@@ -43,6 +69,8 @@ const Cadastro = () => {
         getFieldProps,
         handleSubmit: handleFormikSubmit,
         errors,
+        setFieldValue,
+        values,
       }) => (
         <Grid
           container
@@ -80,6 +108,8 @@ const Cadastro = () => {
               </Typography>
               <form onSubmit={handleFormikSubmit} style={{ gap: 25 }}>
                 <Stack spacing={1}>
+                  {JSON.stringify(errors)}
+                  {JSON.stringify(values.organize)}
                   <TextField
                     sx={styles.root}
                     label="Nome"
@@ -125,6 +155,49 @@ const Cadastro = () => {
                     helperText={errors.confirmarSenha}
                     error={!!errors.confirmarSenha}
                   />
+
+                  <TextField
+                    sx={styles.root}
+                    label="CEP"
+                    variant="filled"
+                    fullWidth
+                    {...getFieldProps('cep')}
+                    helperText={errors.cep}
+                    error={!!errors.cep}
+                  />
+                  <TextField
+                    sx={styles.root}
+                    label="Telefone"
+                    variant="filled"
+                    fullWidth
+                    {...getFieldProps('telefone')}
+                    helperText={errors.telefone}
+                    error={!!errors.telefone}
+                  />
+                  {/* <FormControl component="fieldset">
+                    <FormLabel component="legend">
+                      Conta de organizador?
+                    </FormLabel>
+                    <FormGroup aria-label="position" row>
+                      <FormControlLabel
+                        labelPlacement="start"
+                        control={
+                          <Box sx={{ position: 'relative' }}>
+                            <Switch
+                              sx={styles.switchStyle}
+                              color="primary"
+                              {...getFieldProps('organize')}
+                              value={values.organize}
+                              onChange={(e) => {
+                                console.log(e.target.checked);
+                                setFieldValue('organize', e.target.checked);
+                              }}
+                            />
+                          </Box>
+                        }
+                      />
+                    </FormGroup>
+                  </FormControl> */}
                 </Stack>
                 <Stack spacing={1}>
                   <Button type="submit" variant="contained">

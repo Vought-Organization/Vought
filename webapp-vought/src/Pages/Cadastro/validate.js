@@ -10,4 +10,7 @@ export const validationSchema = Yup.object().shape({
   confirmarSenha: Yup.string()
     .required('Campo Obrigatório')
     .oneOf([Yup.ref('senha')], 'As senhas devem ser iguais.'),
+  cpf: Yup.string().required('CPF obrigatório'),
+  telefone: Yup.string().required('Campo obrigatório'),
+  cep: Yup.string().required('Campo obrigatório'),
 });
