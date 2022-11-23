@@ -59,7 +59,7 @@ const NavBarDinamica = () => {
     { label: 'Logout', onClick: () => handleLogout() },
   ];
 
-  if (!signed) {
+  if (signed) {
     return (
       <Box>
         <Box sx={{ flexGrow: 0 }}>
