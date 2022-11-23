@@ -20,7 +20,7 @@ import { acessoUsuario } from '../../Services/Usuario/acessoUsuario';
 import { useAuth } from '../../Context/useAuth';
 
 const initialValues = {
-  userName: '',
+  email: '',
   senha: '',
 };
 
@@ -48,10 +48,10 @@ const Login = () => {
 
   const handleSubmit = useCallback(
     (values) => {
-      console.log(values.userName);
+      console.log(values.email);
       console.log(data?.data);
       const userInfo = data?.data.filter(
-        (item) => item.userName === values.userName
+        (item) => item.email === values.email && item.password === values.senha
       );
 
       console.log(userInfo);
@@ -59,7 +59,7 @@ const Login = () => {
         loginUsuario(userInfo[0]);
         navigate('/');
       } else {
-        setErrorMessage('userName ou senha inválido');
+        setErrorMessage('Email ou Senha inválido');
       }
     },
     [data, loginUsuario]
@@ -147,13 +147,13 @@ const Login = () => {
                   </Typography>
                   <Stack spacing={1}>
                     <TextField
-                      {...getFieldProps('userName')}
+                      {...getFieldProps('email')}
                       sx={styles.root}
-                      label="userName"
+                      label="Email"
                       variant="filled"
                       fullWidth
-                      helperText={errors.userName}
-                      error={!!errors.userName}
+                      helperText={errors.email}
+                      error={!!errors.email}
                     />
                     <TextField
                       {...getFieldProps('senha')}
