@@ -1,26 +1,27 @@
+import React, { useState } from 'react';
+
 import {
   Avatar,
   Box,
   Button,
+  ButtonBase,
   IconButton,
   Menu,
   MenuItem,
   Tooltip,
   Typography,
 } from '@mui/material';
-import React, { useState } from 'react';
 import { useAuth } from '../../../Context/useAuth';
-
-import AdbIcon from '@mui/icons-material/Adb';
-
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Eventos', 'Meus Ingressos', 'Logout'];
+import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
 const NavBarDinamica = () => {
-  const { signed } = useAuth();
+  const { signed, logoutUsuario } = useAuth();
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -37,15 +38,34 @@ const NavBarDinamica = () => {
     setAnchorElUser(null);
   };
 
-  if (signed) {
+  const handleLogout = useCallback(() => {
+    navigate('/');
+    logoutUsuario();
+  }, []);
+
+  const settings = [
+    {
+      label: 'Profile',
+      onClick: () => console.log('Não implementado'),
+    },
+    {
+      label: 'Eventos',
+      onClick: () => console.log('Não implementado'),
+    },
+    {
+      label: 'Meus Ingressos',
+      onClick: () => console.log('Não implementado'),
+    },
+    { label: 'Logout', onClick: () => handleLogout() },
+  ];
+
+  if (!signed) {
     return (
       <Box>
         <Box sx={{ flexGrow: 0 }}>
-          <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-            </IconButton>
-          </Tooltip>
+          <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+            <Avatar alt="Remy Sharp" src="" />
+          </IconButton>
           <Menu
             sx={{ mt: '45px' }}
             id="menu-appbar"
@@ -54,7 +74,7 @@ const NavBarDinamica = () => {
               vertical: 'top',
               horizontal: 'right',
             }}
-            keepMounted
+
             transformOrigin={{
               vertical: 'top',
               horizontal: 'right',
@@ -62,9 +82,14 @@ const NavBarDinamica = () => {
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
           >
-            {settings.map((setting) => (
-              <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                <Typography textAlign="center">{setting}</Typography>
+            {settings.map((setting, i) => (
+              <MenuItem key={i} onClick={handleCloseUserMenu}>
+                <ButtonBase
+                  variant="contained"
+                  onClick={() => setting.onClick()}
+                >
+                  {setting.label}
+                </ButtonBase>
               </MenuItem>
             ))}
           </Menu>
@@ -74,8 +99,8 @@ const NavBarDinamica = () => {
   } else {
     return (
       <Box sx={{ maxWidth: 440 }}>
-        <Button>Criar Conta</Button>
-        <Button>Entrar</Button>
+        <Button onClick={() => navigate('/cadastro')}>Criar Conta</Button>
+        <Button onClick={() => navigate('/login')}>Entrar</Button>
       </Box>
     );
   }

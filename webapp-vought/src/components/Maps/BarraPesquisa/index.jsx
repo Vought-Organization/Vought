@@ -128,7 +128,11 @@ const BarraPesquisa = ({
                     }}
                   >
                     <img
-                      src={`data:image/jpg;base64,${filter.image}`}
+                      src={`${
+                        filter.image.substr(0, 15) === 'http'
+                          ? filter.image
+                          : `data:image/jpg;base64,${filter.image}`
+                      }`}
                       alt="Jesus"
                       style={{
                         width: '100%',
