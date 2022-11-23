@@ -1,11 +1,15 @@
-import { Box, Divider, Grid, Typography } from '@mui/material';
+import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 import NavBarDinamica from './NavBarDinamica';
 
 const NavBar = () => {
   return (
     <>
-      <Grid container sx={{ height: '70px' }} justifyContent="center">
+      <Grid
+        container
+        justifyContent="center"
+        sx={{ backgroundColor: '#3A0635', height: '70px' }}
+      >
         <Grid item xs={11} md={10}>
           <Box
             sx={{
@@ -17,7 +21,7 @@ const NavBar = () => {
           >
             <Box
               sx={{
-                backgroundColor: 'blueviolet',
+                backgroundColor: '#3A0635',
                 height: '100%',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -32,15 +36,26 @@ const NavBar = () => {
               <Typography>Home</Typography>
               <Box
                 sx={{
-                  backgroundColor: 'pink',
+                  gap: 5,
                   height: '100%',
                   display: 'flex',
                   justifyContent: 'space-between',
                   alignItems: 'center',
                 }}
               >
-                <Typography>Home</Typography>
-                <Typography>Quem somos nós</Typography>
+                <Button
+                  sx={{ color: (theme) => theme.palette.common.white }}
+                  size="small"
+                >
+                  Home
+                </Button>
+                <Button
+                  sx={{ color: (theme) => theme.palette.common.white }}
+                  size="small"
+                  variant="text"
+                >
+                  Quem somos nós
+                </Button>
               </Box>
             </Box>
             <NavBarDinamica />
