@@ -69,7 +69,7 @@ const FormEvento = () => {
               const { lat, lng } = response.results[0].geometry.location;
               console.log(lat, lng);
               setValue('latitude', lat);
-              setValue('longitude', lat);
+              setValue('longitude', lng);
               setLocal({ lat: lat, lng: lng });
               setGeo(true);
               console.log('setei os valores');
