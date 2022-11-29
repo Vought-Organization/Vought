@@ -19,74 +19,10 @@ body {
     letter-spacing: 2px;
 }
 
-/*Navbar*/
-
-#navbar {
-    width: 100%;
-    height: 85px;
-    background-color: #530A4C;
-    color: white;
-}
-
-#navbar-container {
-    width: 75%;
-    height: 100%;
-    margin: auto; /*Quando uma div esta dentro de outra e é menor, é bom utilizar o margin: auto
-                  porque ele deixa centralizado no meio da div pai*/
-    display: flex;
-    justify-content: space-between 500px;
-    align-items: center;
-}
-
-#navbar-items-box {
-    width: 40%;
-    margin-left: 5%;
-}
-
-#navbar-items-box li{
-    padding: 30px;
-}
-
-#navbar-items-1 {
-    display: flex;
-    list-style: none;
-}
-
-#navbar-items-box-2 {
-    margin-left: 12%;
-}
-
-
-
-
-
-#navbar-items-2 {
-    display: flex;
-    list-style: none;
-}
-
-#btn_criar_conta {
-    height: 40px;
-    width: 100px;
-    background-color: #3A0635;
-    color: white;
-    border: 0;
-    border-radius: 10px;
-}
-
-#btn_criar_conta:hover {
-  cursor: pointer;
-  background-color: #851479;
-}
-
-#btn_entrar {
-    margin-top: 10px;
-}
-
 /* Showcase */
 
 #showcase {
-    height: 70vh;
+    height: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,27 +30,34 @@ body {
     background: url('../../assets/imgs/pessoas-curtindo-uma-festa_53876-150249.jpg') no-repeat center;
     background-color: rgba(0, 0, 0, 0.4);
     background-blend-mode: color;
+    width: 100%;
+    max-width: 2000px;
 }
 
 /* Conquistas */
 
 #conquistas {
     width: 100%;
+    max-width: 2000px;
     background: #eee;
     color: #111;
     padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #conquistas-container {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    font-size: large;
 }
 
 .conquista {
     display: flex;
     justify-content: space-around;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 
@@ -123,42 +66,51 @@ body {
 
 #depoimentos {
     width: 100%;
+    max-width: 2000px;
     background: rgb(27, 27, 27);
     color: #eee;
     padding: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 #depoimentos-container {
     display: flex;
     width: 100%;
-    justify-content: space-between;
-    font-size: large;
+    height: 100%;
+    max-width: 2000px;
+    justify-content: space-around;
 }
 
 .depoimento {
     height: 350px;
-    width: 30%;
+    width: 100%;
+    max-width: 400px;
     background-color: rgb(238, 238, 238);
     box-shadow: #111;
     border-radius: 10px;
     color: #111;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .imagem_depoimento {
-    height: 100px;
-    margin-left: 35%;
-    margin-top: 12%;
+    width: 100%;
+    max-width: 150px;
+    margin-top: -30px;
+
 }
 
 .texto_depoimento {
     font-size: 20px;
-    margin-top: 5%;
-    margin-left: 4%;
+    margin-top: 20px;
 }
 
 .nome_depoimento {
-    margin-top: 4%;
-    margin-left: 4%;
+  margin-top: 5%;
 }
 
 /* BENEFICIOS */
@@ -168,6 +120,8 @@ body {
     background: rgb(255, 255, 255);
     color: #111;
     padding: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 #beneficios-container {
@@ -178,20 +132,21 @@ body {
 }
 
 .beneficio {
-  height: 400px;
-  width: 40%;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.beneficio + img {
-  display: flex;
-  justify-content: flex-start;
+.imagem_beneficio {
+  height: 100%;
+  width: 100%;
 }
 
 .titulo {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  margin-top: 2%;
+  justify-content: center;
 }
 
 .titulo + p {

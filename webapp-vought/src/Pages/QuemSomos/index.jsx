@@ -57,7 +57,7 @@ const QuemSomos = () => {
             <div className="headline">SOBRE NOSSA APLICAÇÃO E BENEFÍCIOS</div>
             <div id="beneficios-container">
                 <div className="beneficio">
-                  <img src={Dardo} alt="" />
+                  <img src={Dardo} alt="" className='imagem_beneficio'/>
                   <div className="texto">
                   <h1 className="titulo">DIRETO AO PONTO</h1>
                     <p>Nossa aplicação é direta ao ponto
@@ -68,7 +68,7 @@ const QuemSomos = () => {
                   </div>
                 </div>
                 <div className="beneficio">
-                    <img src={Mapa} alt="" />
+                    <img src={Mapa} alt="" className='imagem_beneficio'/>
                     <div className="texto">
                     <h1 className="titulo">BOA USABILIDADE</h1>
                     <p>Nossa ferramenta foi testada e é muito simples
