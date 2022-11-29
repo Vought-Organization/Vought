@@ -1,12 +1,14 @@
-import styled from"styled-components";
+import styled from "styled-components";
 
 export const Box = styled.div `
   display: flex;
   background-color: rgba(242, 242, 242, 0.826);;
   width: 100%;
-  height: 1050px;
+  height: 1080px;
   overflow: auto;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const BoxFormulario = styled.div `
@@ -81,11 +83,12 @@ export const BoxLadoDireito = styled.div `
 
 export const BotaoPublicar = styled.button `
   width: 100%;
-  height: 30px;
+  height: 40px;
   outline: 0;
   border: none;
   background-color: #530A4C;
   color: #FFFFFF;
+  border-radius: 3px
 `
 
 export const InputData = styled.input `
