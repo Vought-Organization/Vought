@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&display=swap');
+* {
+    box-sizing: border-box; /*Desconsidera o margin e o padding na hora de contar altura ou largura
+                            de um elemento*/
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Inter Tight', sans-serif;
+}
+
+.music-boxes {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px 30px;
+}
+
+.card-evento {
+  background-image: url(../imagens/cover-pink.png);
+  background-size: cover;
+  height: 321px;
+  width: 300px;
+  margin: 0 1%;
+  display: flex;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  align-content: space-between;
+  background-color: rgb(128, 0, 100);
+  border-radius: 10px;
+}
+
+.info-evento {
+  background-color: rgb(255, 255, 255);
+  min-height: 160px;
+  min-width: 300px;
+  max-height: 160px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.icons {
+  padding: 15px;
+  display: flex;
+  width: 100%;
+}
+
+.icons img{
+  margin-left: 2px;
+  cursor: pointer
+}
+
+.card-evento p {
+  font-weight: 300;
+  line-height: 175%;
+  font-size: 16px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.music-box {
+  width: 290px;
+  margin: 5px;
+  font-family: sans-serif;
+  display: inline-block;
+}
+
+.icons .stars {
+  float: right;
+}
+
+.music-box label {
+  font-weight: bold;
+  color: var(--light-color);
+  font-size: 17px;
+}
+
+.music-box input {
+  border: none;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  font-size: 17px;
+  width: inherit;
+}
+
+.img-music {
+  background-color: var(--light-color-2);
+  background-size: cover;
+  height: 290px;
+}
+
+.music-data {
+  background-color: var(--dark-color);
+}
+
+#nome-evento {
+  border: none;
+  font-size: large;
+  font-weight: bold;
+  margin-right: 30%;
+  pointer-events: none;
+  width: 100%;
+  color: black;
+}
+
+#endereco-evento {
+  border: none;
+  font-size: small;
+  margin-right: 30%;
+  pointer-events: none;
+  width: 100%;
+  color: black;
+  justify-content: flex-start;
+  word-wrap: break-word;
+
+}
+
+.card-title {
+  color: black;
+}
+
+#paragrafo-info {
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+}
+
+#saiba-mais {
+  color: #530A4C;
+  font-size: small;
+  margin-top: 5%;
+  cursor: pointer;
+}
