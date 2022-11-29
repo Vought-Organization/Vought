@@ -11,7 +11,10 @@ import EscolhaEvento from '../Pages/Escolha-Evento';
 import CrudEvento from '../Pages/Crud-Evento';
 import AdicionarEvento from '../Pages/AdicionarEvento';
 import EditarEvento from '../Pages/EditarEvento';
-import FormEvento from '../Pages/FormAdicionarEvento';
+import FormEvento from '../Pages/FormAdicionarEvento'
+import AdicionarIngresso from '../Pages/AdicionarIngresso';
+import PaginaEvento from '../Pages/PaginaEvento';
+import TesteCrud from '../Pages/TesteCrud';
 import NotFound from '../Pages/NotFound';
 
 const Rotas = () => {
@@ -30,11 +33,10 @@ const Rotas = () => {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/cadastro" element={<Cadastro />} />
           <Route exact path="*" element={<NotFound/>}/>
-          <Route
-            exact
-            path="/adicionar-evento"
-            element={<FormEvento />}
-          ></Route>
+          <Route exact path="/adicionar-evento" element={<FormEvento />}></Route>
+          <Route exact path="/adicionar-ingresso" element={<AdicionarIngresso />}></Route>
+          <Route exact path='/tela-teste/pagina-evento/:id' element={<PaginaEvento></PaginaEvento>}></Route>
+          <Route exact path='/tela-teste' element={<TesteCrud></TesteCrud>}></Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
