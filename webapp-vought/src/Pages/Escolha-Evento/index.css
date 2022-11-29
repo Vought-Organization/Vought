@@ -44,15 +44,17 @@ body {
 }
 
 .imagem_container {
-  width: 40%;
+  width: 50%;
+  background-color: #3A0635;
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .imagem {
-  height: 50%;
-  margin-top: 40%;
+  height: 150px;
+  width: 150px;
 }
 
 .texto_container {
@@ -61,10 +63,10 @@ body {
 }
 
 .titulo {
-  margin: 0;
   height: 50%;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   color: purple;
 }
 
