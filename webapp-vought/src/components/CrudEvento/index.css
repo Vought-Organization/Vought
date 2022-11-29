@@ -10,22 +10,13 @@ body {
     font-family: 'Inter Tight', sans-serif;
 }
 
-
-.filter {
-  /* background-color: red; */
-  margin-top: 40px;
-  display: inline-block;
-  width: 100%;
-}
-
 .music-boxes {
-  /* background-color: red; */
-  /* text-align: center; */
   padding-top: 50px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  gap: 10px 30px;
+  justify-content: center;
 }
 
 .card-evento {
@@ -56,10 +47,8 @@ body {
 }
 
 .icons {
-  padding: 15px;
-  display: flex;
   width: 100%;
-  justify-content: flex-end;
+  max-width: 20px;
 }
 
 .icons img{
