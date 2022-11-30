@@ -170,7 +170,6 @@ const Login = () => {
                         ),
                       }}
                     />
-                    <div>{JSON.stringify(user)}</div>
                   </Stack>
                   {errorMessage !== '' && <div>{errorMessage}</div>}
                   <Stack spacing={1}>
