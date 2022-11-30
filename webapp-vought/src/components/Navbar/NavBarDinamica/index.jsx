@@ -61,7 +61,17 @@ const NavBarDinamica = () => {
 
   if (signed) {
     return (
-      <Box>
+      <Box sx={{ display: 'flex', gap: 1 }}>
+        <Button
+          sx={{
+            color: (theme) => theme.palette.common.white,
+            backgroundColor: '#3A0635',
+          }}
+          variant="text"
+          onClick={() => navigate('../escolha-evento')}
+        >
+          Criar evento
+        </Button>
         <Box sx={{ flexGrow: 0 }}>
           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
             <Avatar alt="Remy Sharp" src="" />
