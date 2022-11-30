@@ -44,7 +44,16 @@ const BarraPesquisa = ({
   return (
     <Box sx={styles.root(filterPlaces)}>
       <TextField
-        sx={{ background: 'white' }}
+        sx={{
+          input: {
+            '&::placeholder': {
+              textOverflow: 'ellipsis !important',
+              color: 'black',
+            },
+          },
+        }}
+        placeholder="Pesquisa eventos"
+        title="Pesquisar"
         InputProps={{
           endAdornment: (
             <InputAdornment position="end" sx={styles.icon}>
@@ -80,7 +89,7 @@ const BarraPesquisa = ({
                   },
                 }}
               >
-                <Grid item sm={12} md={10} alignContent="center">
+                <Grid item sm={12} md={8} alignContent="center">
                   <Box
                     sx={{
                       display: 'flex',
@@ -105,7 +114,7 @@ const BarraPesquisa = ({
                 <Grid
                   item
                   sm={12}
-                  md={2}
+                  md={4}
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
@@ -113,7 +122,7 @@ const BarraPesquisa = ({
                     width: '100%',
                     padding: {
                       sm: 0,
-                      md: '0 10px',
+                      md: '10px 10px',
                     },
                   }}
                 >
@@ -128,11 +137,7 @@ const BarraPesquisa = ({
                     }}
                   >
                     <img
-                      src={`${
-                        filter.image.substr(0, 15) === 'http'
-                          ? filter.image
-                          : `data:image/jpg;base64,${filter.image}`
-                      }`}
+                      src={`${filter.image}`}
                       alt="Jesus"
                       style={{
                         width: '100%',
