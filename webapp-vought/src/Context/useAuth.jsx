@@ -13,8 +13,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-   function loginUsuario(userData) {
-
+  function loginUsuario(userData) {
     setUser(userData);
 
     sessionStorage.setItem('usuario', JSON.stringify(userData));
@@ -22,6 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   function logoutUsuario() {
     setUser(null);
+    sessionStorage.removeItem('usuario');
   }
 
   return (
