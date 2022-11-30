@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import useStyles from './styles';
 import { Stack } from '@mui/system';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 import { useCallback } from 'react';
 import { validationSchema } from './validate';
@@ -29,7 +29,11 @@ const Cadastro = () => {
   const theme = useTheme();
   const media = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { mutate } = useMutation((entrada) => cadastroUsuario(entrada));
+  const navigate = useNavigate();
+
+  const { mutate } = useMutation((entrada) => cadastroUsuario(entrada), {
+    onSuccess: () => navigate('/login'),
+  });
 
   const initialValues = {
     nome: '',
@@ -107,8 +111,6 @@ const Cadastro = () => {
               </Typography>
               <form onSubmit={handleFormikSubmit} style={{ gap: 25 }}>
                 <Stack spacing={1}>
-                  {JSON.stringify(errors)}
-                  {JSON.stringify(values.organize)}
                   <TextField
                     sx={styles.root}
                     label="Nome"
@@ -173,7 +175,7 @@ const Cadastro = () => {
                     helperText={errors.telefone}
                     error={!!errors.telefone}
                   />
-                  {/* <FormControl component="fieldset">
+                  <FormControl component="fieldset">
                     <FormLabel component="legend">
                       Conta de organizador?
                     </FormLabel>
@@ -196,7 +198,7 @@ const Cadastro = () => {
                         }
                       />
                     </FormGroup>
-                  </FormControl> */}
+                  </FormControl>
                 </Stack>
                 <Stack spacing={1}>
                   <Button type="submit" variant="contained">
