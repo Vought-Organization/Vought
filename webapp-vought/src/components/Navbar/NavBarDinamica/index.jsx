@@ -14,6 +14,7 @@ import {
 import { useAuth } from '../../../Context/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
+import './style.css'
 
 const NavBarDinamica = () => {
   const { signed, logoutUsuario } = useAuth();
@@ -108,10 +109,10 @@ const NavBarDinamica = () => {
   } else {
     return (
       <Box sx={{ maxWidth: 440, gap: 5, display: 'flex' }}>
-        <Button variant="contained" onClick={() => navigate('/cadastro')}>
+        <Button className='botao--cadastro' variant="contained" sx={{backgroundColor: '#3A0635'}} onClick={() => navigate('/cadastro')}>
           Criar Conta
         </Button>
-        <Button variant="contained" onClick={() => navigate('/login')}>
+        <Button className='botao--cadastro' variant="contained" sx={{backgroundColor: '#3A0635'}} onClick={() => navigate('/login')}>
           Entrar
         </Button>
       </Box>

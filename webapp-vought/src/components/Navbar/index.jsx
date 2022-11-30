@@ -2,6 +2,7 @@ import { Box, Button, Divider, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBarDinamica from './NavBarDinamica';
+import './style.css'
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const NavBar = () => {
       <Grid
         container
         justifyContent="center"
-        sx={{ backgroundColor: '#530a4c', height: '70px' }}
+        sx={{ backgroundColor: '#530a4c', height: '80px' }}
       >
         <Grid item xs={11} md={10}>
           <Box
@@ -30,11 +31,11 @@ const NavBar = () => {
                 flex: 1,
                 maxWidth: {
                   xs: 300,
-                  md: 520,
+                  md: 480,
                 },
               }}
             >
-              <Typography>Home</Typography>
+              <Typography sx={{color: 'white'}}>Vought</Typography>
               <Box
                 sx={{
                   gap: 5,
@@ -44,25 +45,17 @@ const NavBar = () => {
                   alignItems: 'center',
                 }}
               >
-                <Button
-                  sx={{
-                    color: (theme) => theme.palette.common.white,
-                    backgroundColor: '#3A0635',
-                  }}
-                  onClick={() => navigate('/')}
-                >
+                <a href=""
+                className='link--logo'
+                onClick={() => navigate('/')}>
                   Home
-                </Button>
-                <Button
-                  sx={{
-                    color: (theme) => theme.palette.common.white,
-                    backgroundColor: '#3A0635',
-                  }}
-                  variant="text"
-                  onClick={() => navigate('quem-somos')}
-                >
-                  Quem somos nós
-                </Button>
+                </a>
+                <a href=""
+                className='link--logo'
+                onClick={()=> navigate('/quem-somos')}>Quem somos</a>
+                <a href=""
+                className='link--logo'
+                onClick={() => navigate('/escolha-evento')}>Evento</a>
               </Box>
             </Box>
             <NavBarDinamica />

@@ -69,7 +69,7 @@ const FormEvento = () => {
               const { lat, lng } = response.results[0].geometry.location;
               console.log(lat, lng);
               setValue('latitude', lat);
-              setValue('longitude', lat);
+              setValue('longitude', lng);
               setLocal({ lat: lat, lng: lng });
               setGeo(true);
               console.log('setei os valores');
@@ -202,6 +202,7 @@ const FormEvento = () => {
                 center={setGeo ? local : defaultProps.center}
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom}
+                zoom={16}
               >
                 {true && (
                   <div
@@ -239,13 +240,3 @@ const FormEvento = () => {
 };
 
 export default FormEvento;
-
-// import React from 'react'
-
-// const index = () => {
-//   return (
-//     <div>index</div>
-//   )
-// }
-
-// export default index

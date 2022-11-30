@@ -16,7 +16,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px 30px;
-  justify-content: center;
 }
 
 .card-evento {
@@ -47,8 +46,9 @@ body {
 }
 
 .icons {
+  padding: 15px;
+  display: flex;
   width: 100%;
-  max-width: 20px;
 }
 
 .icons img{
@@ -136,4 +136,5 @@ body {
   color: #530A4C;
   font-size: small;
   margin-top: 5%;
+  cursor: pointer;
 }

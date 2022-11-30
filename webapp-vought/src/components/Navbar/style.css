@@ -1,0 +1,9 @@
+.link--logo {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link--logo:hover {
+  color: rgba(255, 255, 255, 0.572)
+}
