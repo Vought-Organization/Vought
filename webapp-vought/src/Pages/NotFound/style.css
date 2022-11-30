@@ -7,9 +7,9 @@
    align-items: center;
    padding: 15px;
    padding-top: 90px;
-   
+
 }
-img{
+#imagemNotFound{
     cursor: pointer;
     width: 600px;
     right: 1300px;
