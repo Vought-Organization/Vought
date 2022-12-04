@@ -16,6 +16,7 @@ import AdicionarIngresso from '../Pages/AdicionarIngresso';
 import PaginaEvento from '../Pages/PaginaEvento';
 import TesteCrud from '../Pages/TesteCrud';
 import NotFound from '../Pages/NotFound';
+import HotSite from '../Pages/HotSite';
 
 const Rotas = () => {
   const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const Rotas = () => {
           <Route exact path="/edita-evento/:id" element={<EditarEvento />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/cadastro" element={<Cadastro />} />
+          <Route exact path="/hot-site" element={<HotSite />} />
           <Route exact path="*" element={<NotFound/>}/>
           <Route exact path="/adicionar-evento" element={<FormEvento />}></Route>
           <Route exact path="/adicionar-ingresso" element={<AdicionarIngresso />}></Route>
