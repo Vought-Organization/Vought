@@ -73,6 +73,16 @@ const NavBarDinamica = () => {
         >
           Criar evento
         </Button>
+        <Button
+          sx={{
+            color: (theme) => theme.palette.common.white,
+            backgroundColor: '#3A0635',
+          }}
+          variant="text"
+          onClick={() => navigate('../hot-site')}
+        >
+          Exportar dados
+        </Button>
         <Box sx={{ flexGrow: 0 }}>
           <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
             <Avatar alt="Remy Sharp" src="" />

@@ -4,18 +4,18 @@ import './style.css'
 import events from 'axios';
 
 function HotSite() {
-   
+
     const [evento, setEvento] = useState([]);
 
    async function downloadTxt() {
         console.log("Requisição está sendo feita: ");
-    
+
         events.get("http://localhost:8080/v1/events/export-eventos")
         .then((response) => {
             console.log(response.data);
             const url = window.URL.createObjectURL(new Blob([response.data]))
             const link = document.createElement("a")
-            link.href = url 
+            link.href = url
             link.setAttribute("download", "exportation-information.txt");
             document.body.appendChild(link)
             link.click();
@@ -27,7 +27,7 @@ function HotSite() {
 
     async function importTxt() {
         console.log("Requisição está sendo feita: ");
-    
+
         events.get("http://localhost:8080/v1/events/import-eventos")
         .then((response) => {
             console.log(response.data);
@@ -37,10 +37,10 @@ function HotSite() {
             console.log(errorOcorrido)
         })
     }
-    
+
     return (
         <>
-          <NavBar/> 
+          <NavBar/>
           <div className="banner">
             <div className="bg">
                 <img src="https://wallpaperaccess.com/full/3097725.jpg" alt="" className="cover" />
@@ -51,7 +51,7 @@ function HotSite() {
                 </div>
                 <div className="search_box">
                     <div className="input_bx">
-                        <p>Quer saber mais sobre os eventos e os participantes?
+                        <p>Quer saber mais sobre os seus eventos e os participantes?
                            Click no botão acima, e descubra um ramo de possibilidades
                            em que você jamais viu!
                         </p>
@@ -59,7 +59,7 @@ function HotSite() {
                 </div>
             </div>
           </div>
-        </> 
+        </>
     )
 }
 export default HotSite;
