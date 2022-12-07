@@ -16,6 +16,7 @@ import AdicionarIngresso from '../Pages/AdicionarIngresso';
 import PaginaEvento from '../Pages/PaginaEvento';
 import TesteCrud from '../Pages/TesteCrud';
 import NotFound from '../Pages/NotFound';
+import TelaPagamento from '../Pages/TelaPagamento'
 import HotSite from '../Pages/HotSite';
 
 const Rotas = () => {
@@ -24,7 +25,7 @@ const Rotas = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route index element={<Home />} />
+          <Route index element={<TelaPagamento />} />
           <Route exact path="/quem-somos" element={<QuemSomos />} />
           <Route exact path="/evento" element={<Evento />} />
           <Route exact path="/escolha-evento" element={<EscolhaEvento />} />
@@ -37,8 +38,8 @@ const Rotas = () => {
           <Route exact path="*" element={<NotFound/>}/>
           <Route exact path="/adicionar-evento" element={<FormEvento />}></Route>
           <Route exact path="/adicionar-ingresso" element={<AdicionarIngresso />}></Route>
-          <Route exact path='/tela-teste/pagina-evento/:id' element={<PaginaEvento></PaginaEvento>}></Route>
-          <Route exact path='/tela-teste' element={<TesteCrud></TesteCrud>}></Route>
+          <Route exact path='/pagina-evento/:id' element={<PaginaEvento></PaginaEvento>}></Route>
+          <Route exact path='/tela-teste' element={<Home></Home>}></Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

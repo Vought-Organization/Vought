@@ -11,7 +11,18 @@ const FormIngresso = () => {
   useEffect(() => {
     axios.get('http://localhost:8080/v1/events')
     .then((response) => {
-      console.log(response.data[response.data.length - 1])
+      console.log(response.data[response.data.length - 1].idEvent)
+      setValue("event", response.data[response.data.length -1].idEvent)
+    })
+    .catch(() => {
+      console.log("Algo deu errado!")
+    })
+  })
+
+  useEffect(() => {
+    axios.get('http://localhost:8080/v1/tickets')
+    .then((response) => {
+      console.log(response.data[response.data.length -1])
     })
     .catch(() => {
       console.log("Algo deu errado!")
@@ -23,10 +34,18 @@ const FormIngresso = () => {
   const navigate = useNavigate();
 
   const postEvento = (data) => {
-    axios
-      .post('http://localhost:8080/v1/tickets', data)
+
+    const data2 = {
+      precoIngresso: data.precoIngresso,
+      event: {
+        idEvent: data.event
+      }
+    }
+
+    axios.post('http://localhost:8080/v1/tickets', data2)
       .then(() => {
-        console.log(data);
+        console.log('data input', data.event)
+        console.log('data passada', data2);
         console.log('Tudo certo!');
         alert('Ticket atribuido ao evento');
         navigate('/escolha-evento');
@@ -48,6 +67,11 @@ const FormIngresso = () => {
 
           <InputData type="number" name='quantity' min="30.00" step="0.01" placeholder='Preço do ingresso'
           {...register("precoIngresso")} />
+
+
+          <form action="" id='form'>
+          <InputData type="hidden" {...register("event")}></InputData>
+          </form>
 
           <form onSubmit={handleSubmit(postEvento)}>
             <BotaoPublicar>Publicar Evento</BotaoPublicar>

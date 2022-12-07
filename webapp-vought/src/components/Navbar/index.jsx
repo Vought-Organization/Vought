@@ -11,7 +11,7 @@ const NavBar = () => {
       <Grid
         container
         justifyContent="center"
-        sx={{ backgroundColor: '#530a4c', height: '80px' }}
+        sx={{ backgroundColor: '#3A0635', height: '80px' }}
       >
         <Grid item xs={11} md={10}>
           <Box
@@ -53,9 +53,6 @@ const NavBar = () => {
                 <a href=""
                 className='link--logo'
                 onClick={()=> navigate('/quem-somos')}>Quem somos</a>
-                <a href=""
-                className='link--logo'
-                onClick={() => navigate('/escolha-evento')}>Evento</a>
               </Box>
             </Box>
             <NavBarDinamica />

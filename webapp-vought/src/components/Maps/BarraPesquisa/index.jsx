@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
+import axios from 'axios';
 
 import {
   Box,
@@ -13,6 +14,7 @@ import { calculaDistancia } from '../../../Utils/calculaDistancia';
 import { debounce } from '../../../Utils/debounce';
 import SearchIcon from '@mui/icons-material/Search';
 import useStyles from './styles';
+import { useEffect } from 'react';
 
 const BarraPesquisa = ({
   setFiltro,
@@ -23,13 +25,14 @@ const BarraPesquisa = ({
 }) => {
   const styles = useStyles();
 
+
   const handleChange = (e) => {
     setFiltro(e.target.value);
   };
 
   const handleClickEvent = useCallback(
     (evento) => {
-      setEventZoom(14);
+      setEventZoom(15);
 
       setValue({
         lat: evento.coords[0].lat,
@@ -38,6 +41,7 @@ const BarraPesquisa = ({
     },
     [setValue, setEventZoom]
   );
+
 
   const handleFilter = useCallback(debounce(handleChange), []);
 
@@ -136,16 +140,6 @@ const BarraPesquisa = ({
                       },
                     }}
                   >
-                    <img
-                      src={`${filter.image}`}
-                      alt="Jesus"
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        borderRadius: '5px',
-                        objectFit: 'cover',
-                      }}
-                    />
                   </Box>
                 </Grid>
               </Grid>

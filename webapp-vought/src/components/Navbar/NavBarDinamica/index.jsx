@@ -109,10 +109,10 @@ const NavBarDinamica = () => {
   } else {
     return (
       <Box sx={{ maxWidth: 440, gap: 5, display: 'flex' }}>
-        <Button className='botao--cadastro' variant="contained" sx={{backgroundColor: '#3A0635'}} onClick={() => navigate('/cadastro')}>
+        <Button className='botao--cadastro' variant="contained" sx={{backgroundColor: '#530a4c'}} onClick={() => navigate('/cadastro')}>
           Criar Conta
         </Button>
-        <Button className='botao--cadastro' variant="contained" sx={{backgroundColor: '#3A0635'}} onClick={() => navigate('/login')}>
+        <Button className='botao--cadastro' variant="contained" sx={{backgroundColor: '#530a4c'}} onClick={() => navigate('/login')}>
           Entrar
         </Button>
       </Box>
