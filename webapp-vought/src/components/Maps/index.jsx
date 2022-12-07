@@ -35,7 +35,7 @@ function Maps({ places }) {
       exec = setTimeout(() => {
         setValue(geo);
         console.log('Estou aqui');
-      }, 1000);
+      },);
     }
 
     return () => {
@@ -59,7 +59,7 @@ function Maps({ places }) {
         width: '100%',
         height: {
           sm: '80vh',
-          md: '500px',
+          md: '600px',
         },
         position: 'relative',
       }}

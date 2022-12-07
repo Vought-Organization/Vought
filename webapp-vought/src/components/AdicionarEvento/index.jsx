@@ -94,7 +94,7 @@ const FormEvento = () => {
         console.log(data);
         console.log('Tudo certo!');
         alert('Evento cadastrado com sucesso!');
-        navigate('/escolha-evento');
+        navigate('/adicionar-ingresso');
       })
       .catch(() => {
         console.log(data);
@@ -137,12 +137,6 @@ const FormEvento = () => {
             variant="outlined"
             name="nameEvent"
             {...register('description')}
-          />
-
-          <InputData
-            placeholder="Insira o endereço completo do evento"
-            type="text"
-            id="search_input"
           />
 
           {/*Formulário CEP no lado esquerdo*/}

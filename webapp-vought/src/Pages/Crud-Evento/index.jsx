@@ -18,7 +18,6 @@ const CrudEvento = () => {
     location.reload()
   }
 
-
   useEffect(() => {listar()}, [])
 
   function listar() {
