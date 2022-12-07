@@ -1,16 +1,25 @@
 import NavBar from "../../components/Navbar";
+import React , {useState} from "react";
 import './style.css'
 import events from 'axios';
 
 function HotSite() {
    
+    const [evento, setEvento] = useState([]);
+
    async function downloadTxt() {
         console.log("Requisição está sendo feita: ");
     
         events.get("http://localhost:8080/v1/events/export-eventos")
         .then((response) => {
             console.log(response.data);
-            setEvento(response.data);
+            // setEvento(response.data);
+            const url = window.URL.createObjectURL(new Blob([response.data]))
+            const link = document.createElement("a")
+            link.href = url 
+            link.setAttribute("download", "exportation-information.txt");
+            document.body.appendChild(link)
+            link.click();
         })
         .catch((errorOcorrido) => {
             console.log(errorOcorrido)
