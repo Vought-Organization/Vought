@@ -89,7 +89,7 @@ const FormEvento = () => {
 
   const addPost = (data) =>
     axios
-      .post('http://backend-vought.duckdns.org:8080/v1/events', data)
+      .post('http://backvought.duckdns.org:8080/v1/events', data)
       .then(() => {
         console.log(data);
         console.log('Tudo certo!');

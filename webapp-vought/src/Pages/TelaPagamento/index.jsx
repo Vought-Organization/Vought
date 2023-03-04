@@ -27,7 +27,7 @@ const TelaPagamento = () => {
 
 
   useEffect((data) => {
-    axios.get("http://backend-vought.duckdns.org:8080/v1/events/qttd/3", data)
+    axios.get("http://backvought.duckdns.org:8080/v1/events/qttd/3", data)
     .then((data) => {
       console.log(data.data)
       setData(data.data)
@@ -36,7 +36,7 @@ const TelaPagamento = () => {
 
 
   useEffect((response) => {
-    axios.get("http://backend-vought.duckdns.org:8080/v1/events", response)
+    axios.get("http://backvought.duckdns.org:8080/v1/events", response)
     .then((response) => {
       console.log('DATA AQUI', response.data)
       setIdEvent(response.data.idEvent)

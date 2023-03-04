@@ -2,7 +2,7 @@ import axios from "axios"; // importando a biblioteca "axios"
 
 // criando constante que possui uma instância do Axios, com uma configuração de URL base
 const api = axios.create({
-    baseURL: "http://backend-vought.duckdns.org:8080/v1/events" // URL base para realizar as requisições
+    baseURL: "http://backvought.duckdns.org:8080/v1/events" // URL base para realizar as requisições
 })
 
 
