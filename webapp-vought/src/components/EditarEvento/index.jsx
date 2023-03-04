@@ -18,13 +18,13 @@ const editarEvento = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/v1/events/${id}`)
+    axios.get(`http://backend-vought.duckdns.org:8080/v1/events/${id}`)
     .then((response) => {
       reset(response.data)
     })
   }, [])
 
-  const editPost = data => axios.put(`http://localhost:8080/v1/events/${id}`, data)
+  const editPost = data => axios.put(`http://backend-vought.duckdns.org:8080/v1/events/${id}`, data)
   .then(() => {
     console.log(data)
     console.log("Tudo certo!")
