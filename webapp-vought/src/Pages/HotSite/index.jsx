@@ -10,7 +10,7 @@ function HotSite() {
    async function downloadTxt() {
         console.log("Requisição está sendo feita: ");
 
-        events.get("http://backvought.duckdns.org:8080/v1/events/export-eventos")
+        events.get("http://44.214.102.135:8080/v1/events/export-eventos")
         .then((response) => {
             console.log(response.data);
             const url = window.URL.createObjectURL(new Blob([response.data]))
@@ -28,7 +28,7 @@ function HotSite() {
     async function importTxt() {
         console.log("Requisição está sendo feita: ");
 
-        events.get("http://backvought.duckdns.org:8080/v1/events/import-eventos")
+        events.get("http://44.214.102.135:8080/v1/events/import-eventos")
         .then((response) => {
             console.log(response.data);
             alert("Dados Importados com sucesso!")

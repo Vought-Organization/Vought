@@ -23,7 +23,7 @@ const PaginaEvento = () => {
 
   useEffect(() => {
     console.log(id);
-    axios.get(`http://backvought.duckdns.org:8080/v1/events/${id}`)
+    axios.get(`http://44.214.102.135:8080/v1/events/${id}`)
     .then((response) => {
       console.log(response.data)
       console.log(response.data.addressEvent)
@@ -126,7 +126,7 @@ const PaginaEvento = () => {
   }
 
   useEffect(() => {
-    axios.get(`http://backvought.duckdns.org:8080/v1/tickets/eventos/${id}`)
+    axios.get(`http://44.214.102.135:8080/v1/tickets/eventos/${id}`)
     .then((response) => {
       console.log('PREÇO DO EVENTO', response.data[0].precoIngresso)
       precoDoEvento = response.data[0].precoIngresso

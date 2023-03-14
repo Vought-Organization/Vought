@@ -3,16 +3,16 @@ import axios from 'axios'; // importando a biblioteca "axios"
 // criando constante que possui uma instância do Axios, com uma configuração de URL base
 export const useServices = () => {
   const users = axios.create({
-    baseURL: 'http://backvought.duckdns.org:8080/v1/users',
+    baseURL: 'http://44.214.102.135:8080/v1/users',
     headers: { 'Content-Type': 'application/json' },
   });
 
   const tickets = axios.create({
-    baseURL: 'http://backvought.duckdns.org:8080/v1/tickets',
+    baseURL: 'http://44.214.102.135:8080/v1/tickets',
   });
 
   const events = axios.create({
-    baseURL: 'http://backvought.duckdns.org:8080/v1/events',
+    baseURL: 'http://44.214.102.135:8080/v1/events',
     headers: { 'Content-Type': 'application/json' },
   });
 

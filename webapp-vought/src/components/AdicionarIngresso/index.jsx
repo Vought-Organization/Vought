@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 const FormIngresso = () => {
 
   useEffect(() => {
-    axios.get('http://backvought.duckdns.org:8080/v1/events')
+    axios.get('http://44.214.102.135:8080/v1/events')
     .then((response) => {
       console.log(response.data[response.data.length - 1].idEvent)
       setValue("event", response.data[response.data.length -1].idEvent)
@@ -20,7 +20,7 @@ const FormIngresso = () => {
   })
 
   useEffect(() => {
-    axios.get('http://backvought.duckdns.org:8080/v1/tickets')
+    axios.get('http://44.214.102.135:8080/v1/tickets')
     .then((response) => {
       console.log(response.data[response.data.length -1])
     })
@@ -42,7 +42,7 @@ const FormIngresso = () => {
       }
     }
 
-    axios.post('http://backvought.duckdns.org:8080/v1/tickets', data2)
+    axios.post('http://44.214.102.135:8080/v1/tickets', data2)
       .then(() => {
         console.log('data input', data.event)
         console.log('data passada', data2);

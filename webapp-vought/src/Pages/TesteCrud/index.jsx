@@ -13,7 +13,7 @@ const TesteCrud = () => {
   function listar() {
     console.log("Requisição está sendo feita: ");
 
-    axios.get('http://backvought.duckdns.org:8080/v1/events')
+    axios.get('http://44.214.102.135:8080/v1/events')
     .then((response) => {
         console.log(response.data);
         setEvento(response.data);
