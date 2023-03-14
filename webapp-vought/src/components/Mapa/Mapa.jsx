@@ -12,7 +12,7 @@ export const Mapa = () => {
   <ContainerMapa>
 
       <GoogleMapReact
-       bootstrapURLKeys={{key: 'AIzaSyDUPlAlRgL8OLpVxoYAO8IZEY4-XeAcNvo'}}
+       bootstrapURLKeys={{key: 'AIzaSyA1S00x-0fsfTjuQD6saCff9abywMWxqRg'}}
        defaultCenter={coordenadas}
        center={coordenadas}
        defaultZoom={14}

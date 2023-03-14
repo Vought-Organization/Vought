@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from '../../components/Navbar/index'
 import '../Crud-Evento/index.css'
-import CrudComponent from '../../components/CrudEvento/index'
+
 import api from '../../api'
 import { useState, useEffect } from "react";
 import axios from 'axios'
@@ -34,7 +34,7 @@ const CrudEvento = () => {
 }
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar/>
       <div id="container">
       <div className="music-boxes">
             {
