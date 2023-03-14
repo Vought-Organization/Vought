@@ -34,7 +34,7 @@ const CrudEvento = () => {
 }
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar/>
       <div id="container">
       <div className="music-boxes">
             {
