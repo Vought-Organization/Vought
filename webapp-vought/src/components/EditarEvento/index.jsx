@@ -18,13 +18,13 @@ const editarEvento = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    axios.get(`http://backvought.duckdns.org:8080/v1/events/${id}`)
+    axios.get(`http://44.214.102.135:8080/v1/events/${id}`)
     .then((response) => {
       reset(response.data)
     })
   }, [])
 
-  const editPost = data => axios.put(`http://backvought.duckdns.org:8080/v1/events/${id}`, data)
+  const editPost = data => axios.put(`http://44.214.102.135:8080/v1/events/${id}`, data)
   .then(() => {
     console.log(data)
     console.log("Tudo certo!")
