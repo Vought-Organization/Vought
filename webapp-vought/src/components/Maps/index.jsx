@@ -65,6 +65,7 @@ function Maps({ places }) {
       }}
     >
       <BarraPesquisa
+        key={setFiltro}
         setFiltro={setFiltro}
         setEventZoom={setEventZoom}
         setValue={setValue}
