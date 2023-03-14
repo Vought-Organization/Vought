@@ -56,7 +56,7 @@ const FormEvento = () => {
           setValue('city', data.localidade);
           // setCep(endereco);
 
-          Geocode.setApiKey('AIzaSyBcrmgLdJ79VsDc5lbmueQQIakqiwAIg-Y');
+          Geocode.setApiKey('AIzaSyA1S00x-0fsfTjuQD6saCff9abywMWxqRg');
 
           // set response language. Defaults to english.
           Geocode.setLanguage('pt');
@@ -191,7 +191,7 @@ const FormEvento = () => {
             <div style={{ height: '100%', width: '100%' }}>
               <GoogleMapReact
                 bootstrapURLKeys={{
-                  key: 'AIzaSyBcrmgLdJ79VsDc5lbmueQQIakqiwAIg-Y',
+                  key: 'AIzaSyA1S00x-0fsfTjuQD6saCff9abywMWxqRg',
                 }}
                 center={setGeo ? local : defaultProps.center}
                 defaultCenter={defaultProps.center}

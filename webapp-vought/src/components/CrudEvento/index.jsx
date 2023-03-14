@@ -5,7 +5,7 @@ import imagemDelete from '../../assets/imgs/delete-icon.png'
 import { useNavigate } from 'react-router-dom';
 
 
-const CrudComponent = ({idEvent, nomeEvento, enderecoEvento, deletePost}) => {
+export const CrudComponent = ({idEvent, nomeEvento, enderecoEvento, deletePost}) => {
   const navigate = useNavigate();
 
   return (
@@ -31,4 +31,3 @@ const CrudComponent = ({idEvent, nomeEvento, enderecoEvento, deletePost}) => {
   )
 }
 
-export default CrudComponent;

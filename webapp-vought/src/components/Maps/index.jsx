@@ -72,7 +72,7 @@ function Maps({ places }) {
         geo={geo}
       />
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyBcrmgLdJ79VsDc5lbmueQQIakqiwAIg-Y' }}
+        bootstrapURLKeys={{ key: 'AIzaSyA1S00x-0fsfTjuQD6saCff9abywMWxqRg' }}
         center={value}
         defaultCenter={geo}
         defaultZoom={20}
