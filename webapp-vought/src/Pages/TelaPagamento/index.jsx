@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './index.css';
 import Seta from './kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a82ed16.7252492515177963945363.png'
+import Maps from '../../components/Maps';
 import NavBar from '../../components/Navbar';
 
 
@@ -26,7 +27,7 @@ const TelaPagamento = () => {
 
 
   useEffect((data) => {
-    axios.get("http://44.214.102.135:8080/v1/events/qttd/3", data)
+    axios.get("http://backendvote.duckdns.org:8080/v1/events/qttd/3", data)
     .then((data) => {
       console.log(data.data)
       setData(data.data)
@@ -35,7 +36,7 @@ const TelaPagamento = () => {
 
 
   useEffect((response) => {
-    axios.get("http://44.214.102.135:8080/v1/events", response)
+    axios.get("http://backendvote.duckdns.org:8080/v1/events", response)
     .then((response) => {
       console.log('DATA AQUI', response.data)
       setIdEvent(response.data.idEvent)
@@ -80,6 +81,93 @@ const TelaPagamento = () => {
     alow2.current.scrollLeft += alow2.current.offsetWidth
     console.log(carousel.current.offsetWidth);
   }
+
+  var places = [
+    {
+      id: 2,
+      evento: "Teste",
+      endereco: 'Av paulista 445',
+      image: 'https://iili.io/H2M0Gaf.md.jpg',
+      coords: [
+        {
+          lat: -23.4839417,
+          lng: -46.5758245,
+        },
+      ],
+    },
+    {
+      id: 3,
+      evento: 'Teste',
+      endereco: 'Av paulista 445',
+      image: 'https://iili.io/H2Vxdhv.md.jpg',
+      coords: [
+        {
+          lat: -23.582526,
+          lng: -46.699584,
+        },
+      ],
+    },
+    {
+      id: 4,
+      evento: 'Jesus4',
+      endereco: 'Av paulista 445',
+      image: 'https://freeimage.host/i/H2M0Gaf',
+      coords: [
+        {
+          lat: -23.534862,
+          lng: -46.634121,
+        },
+      ],
+    },
+    {
+      id: 5,
+      evento: 'Ibirapuera',
+      endereco: 'Av paulista 445',
+      image: 'https://freeimage.host/i/H2M0Gaf',
+      coords: [
+        {
+          lat: -23.587218,
+          lng: -46.664037,
+        },
+      ],
+    },
+    {
+      id: 6,
+      evento: 'Quarta Divisão',
+      endereco: 'Av paulista 445',
+      image: 'https://freeimage.host/i/H2M0Gaf',
+      coords: [
+        {
+          lat: -23.681282,
+          lng: -46.355625,
+        },
+      ],
+    },
+    {
+      id: 7,
+      evento: 'Jesus4',
+      endereco: 'Av paulista 445',
+      image: 'https://freeimage.host/i/H2M0Gaf',
+      coords: [
+        {
+          lat: -23.557143,
+          lng: -46.664547,
+        },
+      ],
+    },
+    {
+      id: 8,
+      evento: 'Guaianazes',
+      endereco: 'Av paulista 445',
+      image: 'https://freeimage.host/i/H2M0Gaf',
+      coords: [
+        {
+          lat: -23.576639,
+          lng: -46.371823,
+        },
+      ],
+    },
+  ];
 
 
   return (
@@ -127,6 +215,9 @@ const TelaPagamento = () => {
               <h1 className="texto--aba--mapa">Pesquise seu evento</h1>
               <h1 className="texto2--aba--mapa">Com nosso mapa interativo você pode pesquisar o evento que você desejar ou filtrar pelo tipo de evento
               <b className="texto2--aba--mapa2"> que você gosta.</b></h1>
+              <div className="mapa--google">
+                <Maps places={places ?? []} />
+              </div>
           </div>
           <div className="container--eventos">
             <h1>VEJA OS EVENTOS DISPONÍVEIS</h1>
