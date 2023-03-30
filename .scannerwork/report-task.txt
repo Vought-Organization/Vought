@@ -1,0 +1,6 @@
+projectKey=front
+serverUrl=http://54.235.148.196:30322
+serverVersion=9.9.0.65466
+dashboardUrl=http://54.235.148.196:30322/dashboard?id=front
+ceTaskId=AYcwIHfyfcXx6rB1jiwc
+ceTaskUrl=http://54.235.148.196:30322/api/ce/task?id=AYcwIHfyfcXx6rB1jiwc
