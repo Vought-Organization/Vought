@@ -16,13 +16,9 @@ import {
   InputData,
 } from './AppStyled';
 import TextField from '@mui/material/TextField';
-import $ from 'jquery';
 import './style.css';
-import { useEffect } from 'react';
-
 import GoogleMapReact from 'google-map-react';
 import Geocode from 'react-geocode';
-import stylesMap from '../Maps/stylesMap';
 
 const FormEvento = () => {
   const defaultProps = {
@@ -32,13 +28,13 @@ const FormEvento = () => {
     },
     zoom: 11,
   };
-  const { register, handleSubmit, setValue, values } = useForm();
+  const { register, handleSubmit, setValue} = useForm();
 
   const onSubmit = (e) => {
     console.log(e);
   };
 
-  const [geo, setGeo] = useState(false);
+  const [, setGeo] = useState(false);
   const [local, setLocal] = useState({});
 
   const checkCEP = (e) => {
@@ -54,15 +50,11 @@ const FormEvento = () => {
           setValue('addressEvent', endereco);
           setValue('state', data.uf);
           setValue('city', data.localidade);
-          // setCep(endereco);
 
           Geocode.setApiKey('AIzaSyA1S00x-0fsfTjuQD6saCff9abywMWxqRg');
 
-          // set response language. Defaults to english.
           Geocode.setLanguage('pt');
 
-          // set response region. Its optional.
-          // A Geocoding request with region=es (Spain) will return the Spanish city.
           Geocode.setRegion('br');
           Geocode.fromAddress(endereco).then(
             (response) => {
@@ -104,7 +96,6 @@ const FormEvento = () => {
   return (
     <Box>
       <BoxFormulario>
-        {/*Lado esquerdo do formulário */}
         <BoxLadoEsquerdo>
           <TituloBoxFormulario>
             Cadastre aqui as informações do evento
@@ -139,7 +130,6 @@ const FormEvento = () => {
             {...register('description')}
           />
 
-          {/*Formulário CEP no lado esquerdo*/}
           <FormCEP onSubmit={handleSubmit(onSubmit)}>
             <InputCEP
               placeholder="CEP"
@@ -183,7 +173,6 @@ const FormEvento = () => {
           />
         </BoxLadoEsquerdo>
 
-        {/*Lado direito do formulário */}
         <BoxLadoDireito>
           <input id="latitude" type="hidden" {...register('latitude')} />
           <input id="longitude" type="hidden" {...register('longitude')} />
@@ -223,7 +212,6 @@ const FormEvento = () => {
               </GoogleMapReact>
             </div>
           </div>
-          {/*Botão de publicar */}
           <form onSubmit={handleSubmit(addPost)}>
             <BotaoPublicar>Publicar Evento</BotaoPublicar>
           </form>

@@ -1,7 +1,5 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
-
+import React, { useCallback, useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
-
 import Grid from '@mui/material/Grid';
 import {
   TextField,
@@ -28,7 +26,7 @@ const Login = () => {
   const styles = useStyles();
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
-  const { signed, user, loginUsuario, logoutUsuario } = useAuth();
+  const {loginUsuario} = useAuth();
 
   const theme = useTheme();
   const media = useMediaQuery(theme.breakpoints.down('sm'));

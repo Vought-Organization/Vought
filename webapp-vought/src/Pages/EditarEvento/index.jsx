@@ -1,5 +1,4 @@
 import React from "react";
-import './index.css'
 import Navbar from '../../components/Navbar/index'
 import EditarEvento from "../../components/EditarEvento/index";
 

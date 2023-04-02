@@ -14,7 +14,6 @@ import EditarEvento from '../Pages/EditarEvento';
 import FormEvento from '../Pages/FormAdicionarEvento'
 import AdicionarIngresso from '../Pages/AdicionarIngresso';
 import PaginaEvento from '../Pages/PaginaEvento';
-import TesteCrud from '../Pages/TesteCrud';
 import NotFound from '../Pages/NotFound';
 import TelaPagamento from '../Pages/TelaPagamento'
 import HotSite from '../Pages/HotSite';

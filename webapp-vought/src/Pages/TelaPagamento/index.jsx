@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useState, useRef } from "react";
-import { useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import './index.css';
 import Seta from './kisspng-arrow-button-icon-right-arrow-transparent-background-5a77bc2a82ed16.7252492515177963945363.png'
@@ -15,11 +14,11 @@ const TelaPagamento = () => {
 
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
-  const [idEvent, setIdEvent] = useState([])
-  const [latitude, setLatitude] = useState([]);
-  const [longitude, setLongitude] = useState([]);
-  const [nameEvent, setNameEvent] = useState([]);
-  const [addressEvent, setAdressEvent] = useState([])
+  const [, setIdEvent] = useState([])
+  const [, setLatitude] =useState([]);
+  const [, setLongitude] = useState([]);
+  const [, setNameEvent] = useState([]);
+  const [, setAdressEvent] = useState([])
 
   const carousel = useRef(null);
   const alow = useRef(null);
@@ -82,7 +81,7 @@ const TelaPagamento = () => {
     console.log(carousel.current.offsetWidth);
   }
 
-  var places = [
+  const places = [
     {
       id: 2,
       evento: "Teste",
@@ -200,7 +199,7 @@ const TelaPagamento = () => {
             <div id="destaque--evento" ref={carousel}>
               {data.map((item) => {
                 const {idEvent, nameEvent, addressEvent} = item;
-          return(<div id="info--evento" onClick={() => navigate({pathname: `pagina-evento/${idEvent}`})}>
+          return(<div id="info--evento" key={idEvent} onClick={() => navigate({pathname: `pagina-evento/${idEvent}`})}>
                 <span className="titulo--evento">{nameEvent}</span>
                 <span className="endereco--evento">{addressEvent}</span>
           </div>
@@ -228,7 +227,7 @@ const TelaPagamento = () => {
             <div className="container--1" ref={alow}>
             {data2.map((item) =>{
                 const {idEvent, nameEvent, addressEvent} = item;
-          return(<div id="info--evento--2" onClick={() => navigate({pathname: `pagina-evento/${idEvent}`})}>
+          return(<div id="info--evento--2" key={idEvent} onClick={() => navigate({pathname: `pagina-evento/${idEvent}`})}>
                   <div className="informacoes">
                      <span className="titulo--evento--2">{nameEvent}</span>
                         <span className="endereco--evento--2">{addressEvent}</span>
@@ -247,7 +246,7 @@ const TelaPagamento = () => {
             <div className="container--1" ref={alow2}>
             {data2.map((item) =>{
                 const {idEvent, nameEvent, addressEvent} = item;
-          return(<div id="info--evento--2" onClick={() => navigate({pathname: `pagina-evento/${idEvent}`})}>
+          return(<div id="info--evento--2" key={idEvent} onClick={() => navigate({pathname: `pagina-evento/${idEvent}`})}>
                   <div className="informacoes">
                      <span className="titulo--evento--2">{nameEvent}</span>
                         <span className="endereco--evento--2">{addressEvent}</span>
