@@ -4,7 +4,7 @@ import Navbar from '../../components/Navbar/index'
 import EditarEvento from "../../components/EditarEvento/index";
 
 
-const editarEvento = () => {
+const EditarEvento = () => {
   return (
     <>
         <Navbar></Navbar>
@@ -13,4 +13,4 @@ const editarEvento = () => {
   )
 }
 
-export default editarEvento;
+export default EditarEvento;

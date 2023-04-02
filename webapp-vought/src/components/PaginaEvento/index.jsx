@@ -39,72 +39,75 @@ const PaginaEvento = () => {
       const diaFinal = new Date(response.data.endData).getDate();
       const mesFinal = new Date(response.data.endData).getMonth();
       const Descricao = response.data.description
+      let data;
+      let dataMes;
+      let dataMesFinal;
       if (dia == 1) {
-        var data = "Segunda-feira"
+        data = "Segunda-feira"
       } else if (dia == 2) {
-        var data = "Terça-feira"
+       data = "Terça-feira"
       } else if (dia == 3) {
-        var data = "Quarta-feira"
+       data = "Quarta-feira"
       } else if (dia == 4) {
-        var data = "Quinta-feira"
+       data = "Quinta-feira"
       } else if (dia == 5) {
-        var data = "Sexta-feira"
+       data = "Sexta-feira"
       } else if (dia == 6) {
-        var data = "Sábado"
+       data = "Sábado"
       } else if (dia == 7) {
-        var data = "Domingo"
+       data = "Domingo"
       }
 
       if (mesInicial == 1) {
-        var dataMes = "Janeiro";
+       dataMes = "Janeiro";
       } else if (mesInicial == 2) {
-        var dataMes = "Fevereiro";
+       dataMes = "Fevereiro";
       } else if (mesInicial == 3) {
-        var dataMes = "Março";
+       dataMes = "Março";
       } else if (mesInicial == 4) {
-        var dataMes = "Abril"
+       dataMes = "Abril"
       } else if (mesInicial == 5) {
-        var dataMes = "Maio"
+       dataMes = "Maio"
       } else if (mesInicial == 6) {
-        var dataMes = "Junho"
+       dataMes = "Junho"
       } else if (mesInicial == 7) {
-        var dataMes = "Julho"
+       dataMes = "Julho"
       } else if (mesInicial == 8) {
-        var dataMes = "Agosto"
+       dataMes = "Agosto"
       } else if (mesInicial == 9) {
-        var dataMes = "Setembro"
+       dataMes = "Setembro"
       } else if (mesInicial == 10) {
-        var dataMes = "Outubro"
+       dataMes = "Outubro"
       } else if (mesInicial == 11) {
-        var dataMes = "Novembro"
+       dataMes = "Novembro"
       } else if (mesInicial == 12) {
-        var dataMes = "Dezembro"
+       dataMes = "Dezembro"
       }
 
       if (mesFinal == 1) {
-        var dataMesFinal = "Janeiro";
+       dataMesFinal = "Janeiro";
       } else if (mesFinal == 2) {
-        var dataMesFinal = "Fevereiro";
+       dataMesFinal = "Fevereiro";
       } else if (mesFinal == 3) {
-        var dataMesFinal = "Março";
+       dataMesFinal = "Março";
       } else if (mesFinal == 4) {
-        var dataMesFinal = "Abril"
+       dataMesFinal = "Abril"
       } else if (mesFinal == 5) {
-        var dataMesFinal = "Maio"
+       dataMesFinal = "Maio"
       } else if (mesFinal == 6) {
-        var dataMesFinal = "Junho"
+       dataMesFinal = "Junho"
       } else if (mesFinal == 7) {
-        var dataMesFinal = "Julho"
+       dataMesFinal = "Julho"
       } else if (mesFinal == 8) {
-        var dataMesFinal = "Agosto"
+       dataMesFinal = "Agosto"
       } else if (mesFinal == 9) {
-        var dataMesFinal = "Setembro"
+       dataMesFinal = "Setembro"
       } else if (mesFinal == 10) {
-        var dataMesFinal = "Outubro"
+       dataMesFinal = "Outubro"
       } else if (mesFinal == 11) {
-        var dataMesFinal = "Novembro"
+       dataMesFinal = "Novembro"
       } else if (mesFinal == 12) {
-        var dataMesFinal = "Dezembro"
+       dataMesFinal = "Dezembro"
       }
 
 
@@ -119,11 +122,7 @@ const PaginaEvento = () => {
     })
   }, [])
 
-  var precoDoEvento;
-
-  const alert = () => {
-    alert("teste")
-  }
+ precoDoEvento;
 
   useEffect(() => {
     axios.get(`http://44.214.102.135:8080/v1/tickets/eventos/${id}`)
