@@ -10,7 +10,7 @@ import { useParams } from "react-router-dom";
 
 
 
-const editarEvento = () => {
+const EditarEvento = () => {
   const { register, handleSubmit, reset} = useForm()
 
   const { id } = useParams()
@@ -120,4 +120,4 @@ const editarEvento = () => {
   )
 }
 
-export default editarEvento;
+export default EditarEvento;
