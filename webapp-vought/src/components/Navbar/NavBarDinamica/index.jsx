@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import { useState } from 'react';
 import {
   Avatar,
   Box,
@@ -8,8 +7,6 @@ import {
   IconButton,
   Menu,
   MenuItem,
-  Tooltip,
-  Typography,
 } from '@mui/material';
 import { useAuth } from '../../../Context/useAuth';
 import { useNavigate } from 'react-router-dom';
@@ -19,20 +16,12 @@ import './style.css'
 const NavBarDinamica = () => {
   const { signed, logoutUsuario } = useAuth();
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const navigate = useNavigate();
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {

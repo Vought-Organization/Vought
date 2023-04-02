@@ -1,6 +1,4 @@
-import React, { useCallback, useState } from 'react';
-import axios from 'axios';
-
+import { useCallback } from 'react';
 import {
   Box,
   Grid,
@@ -14,7 +12,6 @@ import { calculaDistancia } from '../../../Utils/calculaDistancia';
 import { debounce } from '../../../Utils/debounce';
 import SearchIcon from '@mui/icons-material/Search';
 import useStyles from './styles';
-import { useEffect } from 'react';
 
 const BarraPesquisa = ({
   setFiltro,

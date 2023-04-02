@@ -1,15 +1,8 @@
 import { Box, Button, Grid, Paper, Stack, Typography } from '@mui/material';
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 import Maps from '../../components/Maps';
-import { useQuery } from 'react-query';
-
 import imageHome from '../../assets/imgs/home/image-banner.png';
 import NavBar from '../../components/Navbar';
-
-import Geocode from 'react-geocode';
-import { acessoUsuario } from '../../Services/Usuario/acessoUsuario';
-import { useAuth } from '../../Context/useAuth';
 
 const places = [
   {
@@ -99,29 +92,6 @@ const places = [
 ];
 
 const Home = () => {
-  const navigate = useNavigate();
-
-  const { signed, user, loginUsuario, logoutUsuario } = useAuth();
-
-  // useEffect(() => {
-  //   Geocode.setApiKey('AIzaSyBcrmgLdJ79VsDc5lbmueQQIakqiwAIg-Y');
-
-  //   // set response language. Defaults to english.
-  //   Geocode.setLanguage('pt');
-
-  //   // set response region. Its optional.
-  //   // A Geocoding request with region=es (Spain) will return the Spanish city.
-  //   Geocode.setRegion('br');
-  //   Geocode.fromAddress('Rua dos andradas 69').then(
-  //     (response) => {
-  //       const { lat, lng } = response.results[0].geometry.location;
-  //       console.log(lat, lng);
-  //     },
-  //     (error) => {
-  //       console.error(error);
-  //     }
-  //   );
-  // }, []);
 
   return (
     <Stack>

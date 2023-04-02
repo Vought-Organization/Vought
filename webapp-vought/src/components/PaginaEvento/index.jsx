@@ -1,19 +1,16 @@
 import axios from 'axios';
-import { Caixa, BoxFormulario, Informacoes, InputTitulo, InputData, DivDescricao, InputHorario,
-  InputData1, InputHorario1, InputData2, InputHorario2, Foto, BoxFormularioParte1, BoxFormularioParte2,
-  Descricao, FormularioEsquerda, FormularioDireita, BotaoComprar, FormularioEsquerda2, FormularioDireita2, InputTitulo2, InputData3, InputData4, InputData5} from './AppStyled'
+import { Caixa, BoxFormulario, Informacoes, InputTitulo, InputData, DivDescricao,
+  InputData1, InputData2, Foto, BoxFormularioParte1, BoxFormularioParte2,
+  Descricao, FormularioEsquerda, FormularioDireita, FormularioEsquerda2, FormularioDireita2, InputTitulo2, InputData3, InputData4, InputData5} from './AppStyled'
 import { useParams } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { React, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
 import { PayPalScriptProvider, PayPalButtons} from '@paypal/react-paypal-js'
 import './index.css'
 import { saveAs } from 'file-saver';
 
 
 const PaginaEvento = () => {
-
-  const navigate = useNavigate();
 
   const url = "../../assets/imgs/adicionar.pdf"
 
