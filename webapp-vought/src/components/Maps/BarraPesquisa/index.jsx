@@ -73,6 +73,7 @@ const BarraPesquisa = ({
         {filterPlaces.length ? (
           filterPlaces?.map((filter) => (
             <Paper
+              key={filter.toString()}
               elevation={2}
               sx={{ margin: '10px 2px' }}
               onClick={() => handleClickEvent(filter)}

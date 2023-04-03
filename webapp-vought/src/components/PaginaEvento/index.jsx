@@ -19,13 +19,8 @@ const PaginaEvento = () => {
   const { setValue, register} = useForm();
 
   useEffect(() => {
-    console.log(id);
     axios.get(`http://44.214.102.135:8080/v1/events/${id}`)
     .then((response) => {
-      console.log(response.data)
-      console.log(response.data.addressEvent)
-      console.log(new Date(response.data.startData))
-      setValue("Titulo", response.data.nameEvent)
       const dia = new Date(response.data.startData).getDay()
       const dataHora = new Date(response.data.startData).getHours()
       const minutos = new Date(response.data.startData).getMinutes();
@@ -35,79 +30,16 @@ const PaginaEvento = () => {
       const mesInicial = new Date(response.data.startData).getMonth();
       const diaFinal = new Date(response.data.endData).getDate();
       const mesFinal = new Date(response.data.endData).getMonth();
-      const Descricao = response.data.description
+
       let data;
       let dataMes;
       let dataMesFinal;
-      if (dia == 1) {
-        data = "Segunda-feira"
-      } else if (dia == 2) {
-       data = "Terça-feira"
-      } else if (dia == 3) {
-       data = "Quarta-feira"
-      } else if (dia == 4) {
-       data = "Quinta-feira"
-      } else if (dia == 5) {
-       data = "Sexta-feira"
-      } else if (dia == 6) {
-       data = "Sábado"
-      } else if (dia == 7) {
-       data = "Domingo"
-      }
 
-      if (mesInicial == 1) {
-       dataMes = "Janeiro";
-      } else if (mesInicial == 2) {
-       dataMes = "Fevereiro";
-      } else if (mesInicial == 3) {
-       dataMes = "Março";
-      } else if (mesInicial == 4) {
-       dataMes = "Abril"
-      } else if (mesInicial == 5) {
-       dataMes = "Maio"
-      } else if (mesInicial == 6) {
-       dataMes = "Junho"
-      } else if (mesInicial == 7) {
-       dataMes = "Julho"
-      } else if (mesInicial == 8) {
-       dataMes = "Agosto"
-      } else if (mesInicial == 9) {
-       dataMes = "Setembro"
-      } else if (mesInicial == 10) {
-       dataMes = "Outubro"
-      } else if (mesInicial == 11) {
-       dataMes = "Novembro"
-      } else if (mesInicial == 12) {
-       dataMes = "Dezembro"
-      }
+      data = funcaoPegarDia(dia)
+      dataMes = funcaoPegarMesInicial(mesInicial)
+      dataMesFinal = funcaoPegarMesFinal(mesFinal)
 
-      if (mesFinal == 1) {
-       dataMesFinal = "Janeiro";
-      } else if (mesFinal == 2) {
-       dataMesFinal = "Fevereiro";
-      } else if (mesFinal == 3) {
-       dataMesFinal = "Março";
-      } else if (mesFinal == 4) {
-       dataMesFinal = "Abril"
-      } else if (mesFinal == 5) {
-       dataMesFinal = "Maio"
-      } else if (mesFinal == 6) {
-       dataMesFinal = "Junho"
-      } else if (mesFinal == 7) {
-       dataMesFinal = "Julho"
-      } else if (mesFinal == 8) {
-       dataMesFinal = "Agosto"
-      } else if (mesFinal == 9) {
-       dataMesFinal = "Setembro"
-      } else if (mesFinal == 10) {
-       dataMesFinal = "Outubro"
-      } else if (mesFinal == 11) {
-       dataMesFinal = "Novembro"
-      } else if (mesFinal == 12) {
-       dataMesFinal = "Dezembro"
-      }
-
-
+      setValue("Titulo", response.data.nameEvent)
       setValue("DataLocal", data + " ás " + dataHora + "h" + minutos + "m")
       setValue("DiaInicial", diaInicial + " de " + dataMes + " a " + diaFinal + " de " + dataMesFinal)
       setValue("Endereco", response.data.addressEvent + "," + response.data.city + " - " + response.data.state)
@@ -119,7 +51,85 @@ const PaginaEvento = () => {
     })
   }, [])
 
- precoDoEvento;
+  const funcaoPegarDia = (dia) => {
+    switch (dia) {
+      case 1:
+        return "Segunda-feira"
+      case 2:
+        return "Terça-feira"
+      case 3:
+        return "Quarta-feira"
+      case 4:
+        return "Quinta-feira"
+      case 5:
+        return "Sexta-feira"
+      case 6:
+        return "Sábado"
+      case 7:
+        return "Domingo"
+    }
+  }
+
+const funcaoPegarMesInicial = (mesInicial) => {
+   switch (mesInicial) {
+    case 1:
+      return "Janeiro"
+    case 2:
+      return "Fevereiro"
+    case 3:
+      return "Março"
+    case 4:
+      return "Abril"
+    case 5:
+      return "Maio"
+    case 6:
+      return "Junho"
+    case 7:
+      return "Julho"
+    case 8:
+      return "Agosto"
+    case 9:
+      return "Setembro"
+    case 10:
+      return "Outubro"
+    case 11:
+      return "Novembro"
+    case 12:
+      return "Dezembro"
+   }
+
+}
+
+const funcaoPegarMesFinal = (mesFinal) => {
+  switch (mesFinal) {
+    case 1:
+      return "Janeiro"
+    case 2:
+      return "Fevereiro"
+    case 3:
+      return "Março"
+    case 4:
+      return "Abril"
+    case 5:
+      return "Maio"
+    case 6:
+      return "Junho"
+    case 7:
+      return "Julho"
+    case 8:
+      return "Agosto"
+    case 9:
+      return "Setembro"
+    case 10:
+      return "Outubro"
+    case 11:
+      return "Novembro"
+    case 12:
+      return "Dezembro"
+   }
+}
+
+ let precoDoEvento;
 
   useEffect(() => {
     axios.get(`http://44.214.102.135:8080/v1/tickets/eventos/${id}`)
@@ -133,9 +143,6 @@ const PaginaEvento = () => {
     })
   })
 
-  const style = {
-    color: 'blue'
-  }
   return (
     <>
       <Caixa>
