@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import {
   Avatar,
   Box,
@@ -10,7 +10,6 @@ import {
 } from '@mui/material';
 import { useAuth } from '../../../Context/useAuth';
 import { useNavigate } from 'react-router-dom';
-import { useCallback } from 'react';
 import './style.css'
 
 const NavBarDinamica = () => {
@@ -92,7 +91,7 @@ const NavBarDinamica = () => {
             onClose={handleCloseUserMenu}
           >
             {settings.map((setting, i) => (
-              <MenuItem key={i} onClick={handleCloseUserMenu}>
+              <MenuItem key={setting.toString()} onClick={handleCloseUserMenu}>
                 <ButtonBase
                   variant="contained"
                   onClick={() => setting.onClick()}

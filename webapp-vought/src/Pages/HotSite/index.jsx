@@ -1,11 +1,9 @@
 import NavBar from "../../components/Navbar";
-import React , {useState} from "react";
+import React from "react";
 import './style.css'
 import events from 'axios';
 
 function HotSite() {
-
-    const [evento, setEvento] = useState([]);
 
    async function downloadTxt() {
         console.log("Requisição está sendo feita: ");

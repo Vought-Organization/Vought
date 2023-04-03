@@ -1,7 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import './index.css'
-import imagemEdit from '../../assets/imgs/edit-icon.png'
-
 
 const TelaCrud = ({idEvent, nomeEvento, enderecoEvento}) => {
 
