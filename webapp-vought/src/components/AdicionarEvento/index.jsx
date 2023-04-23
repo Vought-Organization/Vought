@@ -28,7 +28,7 @@ const FormEvento = () => {
     },
     zoom: 11,
   };
-  const { register, handleSubmit, setValue} = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const onSubmit = (e) => {
     console.log(e);
@@ -81,7 +81,7 @@ const FormEvento = () => {
 
   const addPost = (data) =>
     axios
-      .post('http://44.214.102.135:8080/v1/events', data)
+      .post('http://54.163.233.38:8080/v1/events', data)
       .then(() => {
         console.log(data);
         console.log('Tudo certo!');

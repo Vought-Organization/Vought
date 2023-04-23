@@ -1,55 +1,55 @@
-import Navbar from '../../components/Navbar/index'
-import api from '../../api'
-import { useState, useEffect } from "react";
-import axios from 'axios'
-
+import Navbar from '../../components/Navbar/index';
+import api from '../../api';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const CrudEvento = () => {
-
-  const [evento, setEvento] = useState( [] );
+  const [evento, setEvento] = useState([]);
 
   function deletePost(id) {
-    axios.delete(`http://44.214.102.135:8080/v1/events/${id}`)
-    setEvento(evento.filter(eventos => eventos.id !== id))
-    alert("Evento deletado com sucesso!")
-    location.reload()
+    axios.delete(`http://54.163.233.38:8080/v1/events/${id}`);
+    setEvento(evento.filter((eventos) => eventos.id !== id));
+    alert('Evento deletado com sucesso!');
+    location.reload();
   }
 
-  useEffect(() => {listar()}, [])
+  useEffect(() => {
+    listar();
+  }, []);
 
   function listar() {
-    console.log("Requisição está sendo feita: ");
+    console.log('Requisição está sendo feita: ');
 
-    api.get()
-    .then(function (respostaObtida) {
+    api
+      .get()
+      .then(function (respostaObtida) {
         console.log(respostaObtida.data);
         setEvento(respostaObtida.data);
-    })
-    .catch((errorOcorrido) => {           
-        console.log(errorOcorrido)
-    });
-}
+      })
+      .catch((errorOcorrido) => {
+        console.log(errorOcorrido);
+      });
+  }
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <div id="container">
-      <div className="music-boxes">
-            {
-                evento.map((evento) => {
-                   return (<CrudComponent
-                    idEvent={evento.idEvent}
-                    key={evento.idEvent}
-                    nomeEvento={evento.nameEvent}
-                    enderecoEvento={evento.addressEvent}
-                    deletePost={deletePost}
-                    >
-                    </CrudComponent>)
-                })
-            }
+        <div className="music-boxes">
+          {evento.map((evento) => {
+            return (
+              <CrudComponent
+                idEvent={evento.idEvent}
+                key={evento.idEvent}
+                nomeEvento={evento.nameEvent}
+                enderecoEvento={evento.addressEvent}
+                deletePost={deletePost}
+              ></CrudComponent>
+            );
+          })}
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default CrudEvento;
