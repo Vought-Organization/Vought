@@ -26,7 +26,7 @@ const TelaPagamento = () => {
 
 
   useEffect((data) => {
-    axios.get("http://backendvote.duckdns.org:8080/v1/events/qttd/3", data)
+    axios.get("http://54.163.233.38:8080/v1/events/qttd/3", data)
     .then((data) => {
       console.log(data.data)
       setData(data.data)
@@ -35,7 +35,7 @@ const TelaPagamento = () => {
 
 
   useEffect((response) => {
-    axios.get("http://backendvote.duckdns.org:8080/v1/events", response)
+    axios.get("http://54.163.233.38:8080/v1/events", response)
     .then((response) => {
       console.log('DATA AQUI', response.data)
       setIdEvent(response.data.idEvent)
