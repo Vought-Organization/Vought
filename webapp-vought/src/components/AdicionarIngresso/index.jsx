@@ -47,7 +47,7 @@ const FormIngresso = () => {
     };
 
     axios
-      .post('http://54.163.233.38:8080/v1/tickets', data2)
+      .post('http://54.163.233.38:8080/v1/ticket-events', data2)
       .then(() => {
         console.log('data input', data.event);
         console.log('data passada', data2);
