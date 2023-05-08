@@ -15,7 +15,7 @@ const TesteCrud = () => {
     console.log('Requisição está sendo feita: ');
 
     axios
-      .get('http://54.163.233.38:8080/v1/events')
+      .get('https://34.196.201.94:8080/v1/events')
       .then((response) => {
         console.log(response.data);
         setEvento(response.data);

@@ -14,14 +14,14 @@ const EditarEvento = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://54.163.233.38:8080/v1/events/${id}`).then((response) => {
+    axios.get(`https://34.196.201.94:8080/v1/events/${id}`).then((response) => {
       reset(response.data);
     });
   }, []);
 
   const editPost = (data) =>
     axios
-      .put(`http://54.163.233.38:8080/v1/events/${id}`, data)
+      .put(`https://34.196.201.94:8080/v1/events/${id}`, data)
       .then(() => {
         console.log(data);
         console.log('Tudo certo!');

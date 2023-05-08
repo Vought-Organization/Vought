@@ -7,7 +7,7 @@ const CrudEvento = () => {
   const [evento, setEvento] = useState([]);
 
   function deletePost(id) {
-    axios.delete(`http://54.163.233.38:8080/v1/events/${id}`);
+    axios.delete(`https://34.196.201.94:8080/v1/events/${id}`);
     setEvento(evento.filter((eventos) => eventos.id !== id));
     alert('Evento deletado com sucesso!');
     location.reload();
