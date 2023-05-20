@@ -13,7 +13,7 @@ import { useEffect } from 'react';
 const FormIngresso = () => {
   useEffect(() => {
     axios
-      .get('https://34.196.201.94:8080/v1/events')
+      .get('https://voughtback.duckdns.org/v1/events')
       .then((response) => {
         console.log(response.data[response.data.length - 1].idEvent);
         setValue('event', response.data[response.data.length - 1].idEvent);
@@ -25,7 +25,7 @@ const FormIngresso = () => {
 
   useEffect(() => {
     axios
-      .get('https://34.196.201.94:8080/v1/tickets')
+      .get('https://voughtback.duckdns.org/v1/tickets')
       .then((response) => {
         console.log(response.data[response.data.length - 1]);
       })
@@ -47,7 +47,7 @@ const FormIngresso = () => {
     };
 
     axios
-      .post('https://34.196.201.94:8080/v1/ticket-events', data2)
+      .post('https://voughtback.duckdns.org/v1/ticket-events', data2)
       .then(() => {
         console.log('data input', data.event);
         console.log('data passada', data2);
