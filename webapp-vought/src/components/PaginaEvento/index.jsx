@@ -168,7 +168,7 @@ const PaginaEvento = () => {
 
   useEffect(() => {
     axios
-      .get(`https://voughtback.duckdns.org/v1/tickets/eventos/${id}`)
+      .get(`https://voughtback.duckdns.org/v1/ticket-events/events/${id}`)
       .then((response) => {
         console.log('PREÇO DO EVENTO', response.data[0].precoIngresso);
         precoDoEvento = response.data[0].precoIngresso;

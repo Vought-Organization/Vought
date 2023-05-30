@@ -2,6 +2,7 @@ import Navbar from '../../components/Navbar/index';
 import api from '../../api';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { CrudComponent } from '../../components/CrudEvento/index'
 
 const CrudEvento = () => {
   const [evento, setEvento] = useState([]);

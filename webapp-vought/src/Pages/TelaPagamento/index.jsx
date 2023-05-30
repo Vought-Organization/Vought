@@ -26,7 +26,7 @@ const TelaPagamento = () => {
 
 
   useEffect((data) => {
-    axios.get("https://voughtback.duckdns.org/v1/events/qttd/3", data)
+    axios.get("https://voughtback.duckdns.org/v1/files/qtty/3", data)
     .then((data) => {
       console.log(data.data)
       setData(data.data)
