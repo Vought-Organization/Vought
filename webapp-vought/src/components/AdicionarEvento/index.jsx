@@ -81,7 +81,7 @@ const FormEvento = () => {
 
   const addPost = (data) =>
     axios
-      .post('http://54.163.233.38:8080/v1/events', data)
+      .post('https://voughtback.duckdns.org/v1/events', data)
       .then(() => {
         console.log(data);
         console.log('Tudo certo!');

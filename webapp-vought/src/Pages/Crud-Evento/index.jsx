@@ -2,13 +2,13 @@ import Navbar from '../../components/Navbar/index';
 import api from '../../api';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { CrudComponent } from '../../components/CrudEvento/index';
+import { CrudComponent } from '../../components/CrudEvento/index'
 
 const CrudEvento = () => {
   const [evento, setEvento] = useState([]);
 
   function deletePost(id) {
-    axios.delete(`http://54.163.233.38:8080/v1/events/${id}`);
+    axios.delete(`https://voughtback.duckdns.org/v1/events/${id}`);
     setEvento(evento.filter((eventos) => eventos.id !== id));
     alert('Evento deletado com sucesso!');
     location.reload();

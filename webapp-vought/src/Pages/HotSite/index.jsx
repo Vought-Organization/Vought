@@ -8,7 +8,7 @@ function HotSite() {
     console.log('Requisição está sendo feita: ');
 
     events
-      .get('http://54.163.233.38:8080/v1/events/export-eventos')
+      .get('https://voughtback.duckdns.org/v1/events/export-eventos')
       .then((response) => {
         console.log(response.data);
         const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -27,7 +27,7 @@ function HotSite() {
     console.log('Requisição está sendo feita: ');
 
     events
-      .get('http://54.163.233.38:8080/v1/events/import-eventos')
+      .get('https://voughtback.duckdns.org/v1/events/import-eventos')
       .then((response) => {
         console.log(response.data);
         alert('Dados Importados com sucesso!');

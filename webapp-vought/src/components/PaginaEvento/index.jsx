@@ -36,7 +36,7 @@ const PaginaEvento = () => {
   const { setValue, register } = useForm();
 
   useEffect(() => {
-    axios.get(`http://54.163.233.38:8080/v1/events/${id}`).then((response) => {
+    axios.get(`https://voughtback.duckdns.org/v1/events/${id}`).then((response) => {
       const dia = new Date(response.data.startData).getDay();
       const dataHora = new Date(response.data.startData).getHours();
       const minutos = new Date(response.data.startData).getMinutes();
@@ -168,7 +168,7 @@ const PaginaEvento = () => {
 
   useEffect(() => {
     axios
-      .get(`http://54.163.233.38:8080/v1/tickets/eventos/${id}`)
+      .get(`https://voughtback.duckdns.org/v1/ticket-events/events/${id}`)
       .then((response) => {
         console.log('PREÇO DO EVENTO', response.data[0].precoIngresso);
         precoDoEvento = response.data[0].precoIngresso;
