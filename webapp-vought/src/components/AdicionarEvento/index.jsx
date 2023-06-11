@@ -117,7 +117,7 @@ const FormEvento = () => {
             inputProps={{ sx: { fontSize: 12.0 } }}
             variant="outlined"
             name="nameEvent"
-            {...register('categoryEvent')}
+            {...register('category')}
           />
 
           <TextField
